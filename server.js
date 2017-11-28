@@ -52,7 +52,7 @@ const authRouter = require('./src/routes/authRouter.js')
 app.use('/', pageRouter);
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
- 
+
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res) => {
