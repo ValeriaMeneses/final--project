@@ -10,6 +10,9 @@ export default () => (
 	</Button>
 );
 
+import LoginForm from './components/LoginForm.js';
+
+
 const DynamicRoute = (props) => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
   return <h2 style={styleObj}>Dynamic Route: <u>{props.match.params.routeVal}</u></h2>
@@ -31,6 +34,7 @@ class App extends React.Component {
       <Switch>
         <Route path='/ex/:routeVal' component={DynamicRoute}/>
         <Route path='/demo' component={DemoComponent}/>
+				<Route path='/login' component={LoginForm}/>
         <Route component={NoMatch404}/>
       </Switch>
     </div>
