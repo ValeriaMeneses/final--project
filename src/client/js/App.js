@@ -2,6 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
+import {Button, Icon} from 'react-materialize';
+
+export default () => (
+	<Button waves='light'>
+		<Icon>thumb_up</Icon>
+	</Button>
+);
+
 const DynamicRoute = (props) => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
   return <h2 style={styleObj}>Dynamic Route: <u>{props.match.params.routeVal}</u></h2>
@@ -9,7 +17,7 @@ const DynamicRoute = (props) => {
 
 const DemoComponent = () => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: 'slateblue'}
-  return <h2 style={styleObj}>Demo Route U</h2>
+  return 		<Button waves='light'>button<Icon left>cloud</Icon></Button>
 }
 
 const NoMatch404 = () => {
