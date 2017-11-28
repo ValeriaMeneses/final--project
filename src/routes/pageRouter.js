@@ -13,9 +13,4 @@ pageRouter
   res.render('about.ejs');
 });
 
-pageRouter
-.get('/react', (req, res) => {
-  res.render('reactApp.ejs');
-});
-
 module.exports = pageRouter;

@@ -55,6 +55,10 @@ app.use('/auth', authRouter);
 
 app.use(express.static(__dirname + '/public'));
 
+app.use((req, res)=>{
+  res.render('reactApp.ejs')
+});
+
 app.use((req, res) => {
   res.render('404.ejs')
 });
