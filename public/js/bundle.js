@@ -3398,6 +3398,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_materialize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_materialize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_LoginForm_js__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_CreateUser_js__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_PrincipalPage_js__ = __webpack_require__(128);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -3421,6 +3422,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     )
   );
 });
+
 
 
 
@@ -3482,6 +3484,7 @@ var App = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/demo', component: DemoComponent }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/login', component: __WEBPACK_IMPORTED_MODULE_4__components_LoginForm_js__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/createUser', component: __WEBPACK_IMPORTED_MODULE_5__components_CreateUser_js__["a" /* default */] }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/pricipalPage', component: __WEBPACK_IMPORTED_MODULE_6__components_PrincipalPage_js__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { component: NoMatch404 })
       )
     );
@@ -19068,6 +19071,87 @@ var CreateUser = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (CreateUser);
+
+/***/ }),
+/* 128 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var PrincipalPage = function (_React$Component) {
+  _inherits(PrincipalPage, _React$Component);
+
+  function PrincipalPage() {
+    _classCallCheck(this, PrincipalPage);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  PrincipalPage.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "principalPage row" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "cvs col s4" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "button",
+          { className: "waves-effect hi", type: "submit", name: "action" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "material-icons" },
+            "folder_shared"
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+          "Curriculums Vitae"
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "categorias col s4" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "button",
+          { className: "waves-effect hi", type: "submit", name: "action" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "material-icons" },
+            "filter_list"
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+          "Categorias"
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "entrevista col s4" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "button",
+          { className: "waves-effect hi", type: "submit", name: "action" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "material-icons" },
+            "assignment_ind"
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+          "Entrevista"
+        )
+      )
+    );
+  };
+
+  return PrincipalPage;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (PrincipalPage);
 
 /***/ })
 /******/ ]);
