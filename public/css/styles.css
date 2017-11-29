@@ -8,3 +8,33 @@ h2{
   font-size: 120px;
   text-align: center;
 }
+.password{
+  color: navy;
+  background-image: url("../images/1.jpg");
+  background-size: cover;
+  text-align: center;
+  padding: 17% 30% !important;
+}
+.password form{
+  background-color: rgba(52, 152, 219,0.5);
+  padding: 40px;
+  border-radius: 10px;
+}
+.input-field{
+  width:100% !important;
+}
+.password .row{
+  margin: 0 !important;
+}
+
+.createUser{
+  background-image: url("../images/3.jpg");
+  background-size: cover;
+  padding: 8.2% 15%;
+}
+.createUser form{
+  padding: 4%;
+  border: 5px solid;
+  background: rgba(236, 240, 241,0.4)
+}
+.

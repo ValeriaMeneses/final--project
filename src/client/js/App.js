@@ -11,6 +11,8 @@ export default () => (
 );
 
 import LoginForm from './components/LoginForm.js';
+import CreateUser from './components/CreateUser.js';
+
 
 
 const DynamicRoute = (props) => {
@@ -35,6 +37,7 @@ class App extends React.Component {
         <Route path='/ex/:routeVal' component={DynamicRoute}/>
         <Route path='/demo' component={DemoComponent}/>
 				<Route path='/login' component={LoginForm}/>
+				<Route path='/createUser' component={CreateUser}/>
         <Route component={NoMatch404}/>
       </Switch>
     </div>
