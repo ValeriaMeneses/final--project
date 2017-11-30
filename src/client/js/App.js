@@ -13,6 +13,8 @@ export default () => (
 import LoginForm from './components/LoginForm.js';
 import CreateUser from './components/CreateUser.js';
 import PrincipalPage from './components/PrincipalPage.js';
+import MenuNav from './components/MenuNav.js';
+
 
 
 
@@ -39,7 +41,8 @@ class App extends React.Component {
         <Route path='/demo' component={DemoComponent}/>
 				<Route path='/login' component={LoginForm}/>
 				<Route path='/createUser' component={CreateUser}/>
-				<Route path='/pricipalPage' component={PrincipalPage}/>
+				<Route path='/principalPage' component={PrincipalPage}/>
+				<Route path='/menu' component={MenuNav}/>
         <Route component={NoMatch404}/>
       </Switch>
     </div>

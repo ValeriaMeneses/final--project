@@ -68,3 +68,17 @@ h2{
   background-size: cover;
   padding: 21.5% 0 !important;
 }
+
+.menu{
+  background: rgba(41, 128, 185,1.0);
+  height: 90px;
+}
+.menu div{
+  padding: 14px;
+}
+.brand-logo{
+  font-size: 50px !important;
+}
+.menu i{
+  font-size: 50px !important;
+}
