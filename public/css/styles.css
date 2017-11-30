@@ -82,3 +82,35 @@ h2{
 .menu i{
   font-size: 50px !important;
 }
+
+.cvForm{
+  background-image: url("../images/3.jpg");
+  background-size: cover;
+  padding: 3%;
+  display: inline-block;
+  width: 100%;
+  height: 985px;
+}
+.cv{
+  background: rgba(52, 73, 94,0.3);
+  border: 4px solid;
+}
+.cv ul{
+  background: rgba(52, 73, 94,0.3);
+}
+.tabs .tab a{
+  color: white !important;
+}
+.select{
+  margin-left: 1% !important;
+  color: gray;
+}
+.select select{
+  background: transparent;
+  width: 20%;
+
+}
+.cv button{
+  margin-left: 43%;
+  margin-bottom: 1%;
+}
