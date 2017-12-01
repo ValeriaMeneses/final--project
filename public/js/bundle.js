@@ -3402,6 +3402,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_MenuNav_js__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_CVForm_js__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Category_js__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_FiltroCVs_js__ = __webpack_require__(132);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -3425,6 +3426,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     )
   );
 });
+
 
 
 
@@ -3494,6 +3496,7 @@ var App = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/menu', component: __WEBPACK_IMPORTED_MODULE_7__components_MenuNav_js__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/cv-form', component: __WEBPACK_IMPORTED_MODULE_8__components_CVForm_js__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/categories', component: __WEBPACK_IMPORTED_MODULE_9__components_Category_js__["a" /* default */] }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { path: '/filtros', component: __WEBPACK_IMPORTED_MODULE_10__components_FiltroCVs_js__["a" /* default */] }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { component: NoMatch404 })
       )
     );
@@ -19931,9 +19934,69 @@ var Category = function (_React$Component) {
 
   Category.prototype.render = function render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'h1',
-      null,
-      'hi'
+      "div",
+      { className: "categories" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "btn-category" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "btn-floating btn-large waves-effect waves-light blue btn tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Graficas" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "material-icons" },
+            "insert_chart"
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "btn-floating btn-large waves-effect waves-light blue btn tooltipped", "data-position": "bottom", "data-delay": "50", "data-tooltip": "Agregar Categoria" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "material-icons" },
+            "add"
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "category" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Administrativos"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Contabilidad"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Ingenieria"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Tecnologias de la informacion"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Recursos Humanos"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Ventas"
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "a",
+          { className: "waves-effect waves-light blue darken-2 btn" },
+          "Marketing"
+        )
+      )
     );
   };
 
@@ -19941,6 +20004,57 @@ var Category = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Category);
+
+/***/ }),
+/* 132 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var FiltroCVs = function (_React$Component) {
+  _inherits(FiltroCVs, _React$Component);
+
+  function FiltroCVs() {
+    _classCallCheck(this, FiltroCVs);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  FiltroCVs.prototype.render = function render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "filtros" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "a",
+        { href: "#!", className: "btn", onclick: "Materialize.showStaggeredList('#staggered-test')" },
+        "Todos los CV's"
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "a",
+        { href: "#!", className: "btn", onclick: "Materialize.showStaggeredList('#staggered-test')" },
+        "CV's entrevistados"
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "a",
+        { href: "#!", className: "btn", onclick: "Materialize.showStaggeredList('#staggered-test')" },
+        "CV's para entrevista"
+      )
+    );
+  };
+
+  return FiltroCVs;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (FiltroCVs);
 
 /***/ })
 /******/ ]);

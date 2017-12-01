@@ -15,7 +15,9 @@ import CreateUser from './components/CreateUser.js';
 import PrincipalPage from './components/PrincipalPage.js';
 import MenuNav from './components/MenuNav.js';
 import CVForm from './components/CVForm.js';
-import Category from './components/Category.js'
+import Category from './components/Category.js';
+import FiltroCVs from './components/FiltroCVs.js'
+
 
 
 const DynamicRoute = (props) => {
@@ -45,6 +47,8 @@ class App extends React.Component {
 				<Route path='/menu' component={MenuNav}/>
 				<Route path='/cv-form' component={CVForm}/>
 				<Route path='/categories' component={Category}/>
+				<Route path='/filtros' component={FiltroCVs}/>
+
         <Route component={NoMatch404}/>
       </Switch>
     </div>
