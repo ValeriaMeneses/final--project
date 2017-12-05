@@ -5,6 +5,8 @@ exports.up = function(knex, Promise) {
     jobTable.increments()
 
     //Fields
+    jobTable.string('Nombre').notNullable()
+    jobTable.string('Apellidos').notNullable()
     jobTable.string('email').notNullable()
     jobTable.string('password').notNullable()
 

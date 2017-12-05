@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import request from 'superagent';
+
 
 import {Button, Icon} from 'react-materialize';
 
@@ -16,7 +18,9 @@ import PrincipalPage from './components/PrincipalPage.js';
 import MenuNav from './components/MenuNav.js';
 import CVForm from './components/CVForm.js';
 import Category from './components/Category.js';
-import FiltroCVs from './components/FiltroCVs.js'
+import FiltroCVs from './components/FiltroCVs.js';
+import CVSolo from './components/CVSolo.js';
+import NewCategory from './components/NewCategory.js';
 
 
 
@@ -36,22 +40,73 @@ const NoMatch404 = () => {
 }
 
 class App extends React.Component {
-  render (){
-    return <div>
-      <Switch>
-        <Route path='/ex/:routeVal' component={DynamicRoute}/>
-        <Route path='/demo' component={DemoComponent}/>
-				<Route path='/login' component={LoginForm}/>
-				<Route path='/createUser' component={CreateUser}/>
-				<Route path='/principalPage' component={PrincipalPage}/>
-				<Route path='/menu' component={MenuNav}/>
-				<Route path='/cv-form' component={CVForm}/>
-				<Route path='/categories' component={Category}/>
-				<Route path='/filtros' component={FiltroCVs}/>
+	constructor(){
+		super();
 
-        <Route component={NoMatch404}/>
-      </Switch>
+		this.state= {
+			isAuthenticated:false
+		}
+
+		this.handleAuthentication = this.handleAuthentication.bind(this);
+		this.handleLogout = this.handleLogout.bind(this);
+	}
+
+	handleAuthentication(credentials){
+		request
+       .post('/auth/login')
+       .send(credentials)
+       .then(data => {
+         this.setState({
+           isAuthenticated: data.body.id ? true : false
+         });
+       })
+       .catch(err => console.log(err));
+	}
+
+	handleLogout() {
+     this.setState({
+       isAuthenticated: false
+     });
+   }
+
+	 componentWillMount() {
+     request
+       .get('/auth/current')
+       .then(user => {
+         console.log('active session: ', user);
+         this.setState({
+           isAuthenticated: user.body.id ? true : false
+         });
+       })
+       .catch(err => console.log(err));
+   }
+  render (){
+    return (
+			<div>
+					<MenuNav
+						handleLogout={this.handleLogout}
+          	isAuthenticated={this.state.isAuthenticated} />
+					<Switch>
+						<Route exact path='/login' render={props => (
+							<LoginForm
+								{...props}
+								isAuthenticated={this.state.isAuthenticated}
+								handleAuthentication={this.handleAuthentication} />
+						)}/>
+						<Route path='/createUser' component={CreateUser}/>
+						<Route path='/ex/:routeVal' component={DynamicRoute}/>
+						<Route path='/demo' component={DemoComponent}/>
+						<Route path='/principalPage' component={PrincipalPage}/>
+						<Route path='/cv-form' component={CVForm}/>
+						<Route path='/categories/:category' component={Category}/>
+						<Route path='/filtros' component={FiltroCVs}/>
+						<Route path='/dinamic/cv' component={CVSolo}/>
+						<Route path='/newcategory' component={NewCategory}/>
+						<Route component={NoMatch404}/>
+					</Switch>
+
     </div>
+	)
   }
 }
 

@@ -1,29 +1,31 @@
 import React from 'react';
+import {Link, NavLink} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export default class PrincipalPage extends React.Component{
   render(){
     return(
-      <div className="principalPage row">
+      <div className="principalPage ">
         <div className="cvs col s4">
-          <button className="waves-effect " type="submit" name="action">
+          <Link to="#" className="waves-effect " type="submit" name="action">
             <i className="material-icons">folder_shared</i>
             <br/>
             Curriculums Vitae
-          </button>
+          </Link>
         </div>
         <div className="categorias col s4">
-          <button className="waves-effect " type="submit" name="action">
+          <Link to="/categories/categories" className="waves-effect " type="submit" name="action">
             <i className="material-icons">filter_list</i>
             <br/>
             Categorias
-          </button>
+          </Link>
         </div>
         <div className="entrevista col s4">
-          <button className="waves-effect " type="submit" name="action">
+          <Link to="#" className="waves-effect " type="submit" name="action">
             <i className="material-icons">assignment_ind</i>
             <br/>
             Entrevista
-          </button>
+          </Link>
         </div>
       </div>
     )
