@@ -980,286 +980,6 @@ var createPath = function createPath(location) {
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _constants = __webpack_require__(9);
-
-var _constants2 = _interopRequireDefault(_constants);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-function _objectWithoutProperties(obj, keys) {
-  var target = {};for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
-  }return target;
-}
-
-var Col = function Col(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      _ref$node = _ref.node,
-      C = _ref$node === undefined ? 'div' : _ref$node,
-      s = _ref.s,
-      m = _ref.m,
-      l = _ref.l,
-      offset = _ref.offset,
-      other = _objectWithoutProperties(_ref, ['children', 'className', 'node', 's', 'm', 'l', 'offset']);
-
-  var sizes = { s: s, m: m, l: l };
-  var classes = { col: true };
-  _constants2.default.SIZES.forEach(function (size) {
-    classes[size + sizes[size]] = sizes[size];
-  });
-
-  if (offset) {
-    offset.split(' ').forEach(function (off) {
-      classes['offset-' + off] = true;
-    });
-  }
-
-  return _react2.default.createElement(C, _extends({}, other, { className: (0, _classnames2.default)(classes, className) }), children);
-};
-
-Col.propTypes = {
-  children: _propTypes2.default.node,
-  className: _propTypes2.default.string,
-  /**
-   * Columns for large size screens
-   */
-  l: _propTypes2.default.number,
-  /**
-   * Columns for middle size screens
-   */
-  m: _propTypes2.default.number,
-  /**
-   * The node to be used for the column
-   * @default div
-   */
-  node: _propTypes2.default.node,
-  /**
-   * To offset, simply add s2 to the class where s signifies the screen
-   * class-prefix (s = small, m = medium, l = large) and the number after
-   * is the number of columns you want to offset by.
-   */
-  offset: _propTypes2.default.string,
-  /**
-   * Columns for small size screens
-   */
-  s: _propTypes2.default.number
-};
-
-exports.default = Col;
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyObject = {};
-
-if (process.env.NODE_ENV !== 'production') {
-  Object.freeze(emptyObject);
-}
-
-module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyFunction = __webpack_require__(7);
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(14);
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-
-
-
-
-var createLocation = function createLocation(path, state, key, currentLocation) {
-  var location = void 0;
-  if (typeof path === 'string') {
-    // Two-arg form: push(path, state)
-    location = Object(__WEBPACK_IMPORTED_MODULE_2__PathUtils__["d" /* parsePath */])(path);
-    location.state = state;
-  } else {
-    // One-arg form: push(location)
-    location = _extends({}, path);
-
-    if (location.pathname === undefined) location.pathname = '';
-
-    if (location.search) {
-      if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
-    } else {
-      location.search = '';
-    }
-
-    if (location.hash) {
-      if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
-    } else {
-      location.hash = '';
-    }
-
-    if (state !== undefined && location.state === undefined) location.state = state;
-  }
-
-  try {
-    location.pathname = decodeURI(location.pathname);
-  } catch (e) {
-    if (e instanceof URIError) {
-      throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
-    } else {
-      throw e;
-    }
-  }
-
-  if (key) location.key = key;
-
-  if (currentLocation) {
-    // Resolve incomplete/relative pathname relative to current location.
-    if (!location.pathname) {
-      location.pathname = currentLocation.pathname;
-    } else if (location.pathname.charAt(0) !== '/') {
-      location.pathname = Object(__WEBPACK_IMPORTED_MODULE_0_resolve_pathname__["default"])(location.pathname, currentLocation.pathname);
-    }
-  } else {
-    // When there is no prior location and pathname is empty, set it to /
-    if (!location.pathname) {
-      location.pathname = '/';
-    }
-  }
-
-  return location;
-};
-
-var locationsAreEqual = function locationsAreEqual(a, b) {
-  return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(__WEBPACK_IMPORTED_MODULE_1_value_equal__["default"])(a.state, b.state);
-};
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
@@ -2191,6 +1911,286 @@ request.put = function (url, data, fn) {
 };
 
 /***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _constants = __webpack_require__(9);
+
+var _constants2 = _interopRequireDefault(_constants);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+var Col = function Col(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      _ref$node = _ref.node,
+      C = _ref$node === undefined ? 'div' : _ref$node,
+      s = _ref.s,
+      m = _ref.m,
+      l = _ref.l,
+      offset = _ref.offset,
+      other = _objectWithoutProperties(_ref, ['children', 'className', 'node', 's', 'm', 'l', 'offset']);
+
+  var sizes = { s: s, m: m, l: l };
+  var classes = { col: true };
+  _constants2.default.SIZES.forEach(function (size) {
+    classes[size + sizes[size]] = sizes[size];
+  });
+
+  if (offset) {
+    offset.split(' ').forEach(function (off) {
+      classes['offset-' + off] = true;
+    });
+  }
+
+  return _react2.default.createElement(C, _extends({}, other, { className: (0, _classnames2.default)(classes, className) }), children);
+};
+
+Col.propTypes = {
+  children: _propTypes2.default.node,
+  className: _propTypes2.default.string,
+  /**
+   * Columns for large size screens
+   */
+  l: _propTypes2.default.number,
+  /**
+   * Columns for middle size screens
+   */
+  m: _propTypes2.default.number,
+  /**
+   * The node to be used for the column
+   * @default div
+   */
+  node: _propTypes2.default.node,
+  /**
+   * To offset, simply add s2 to the class where s signifies the screen
+   * class-prefix (s = small, m = medium, l = large) and the number after
+   * is the number of columns you want to offset by.
+   */
+  offset: _propTypes2.default.string,
+  /**
+   * Columns for small size screens
+   */
+  s: _propTypes2.default.number
+};
+
+exports.default = Col;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyObject = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  Object.freeze(emptyObject);
+}
+
+module.exports = emptyObject;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyFunction = __webpack_require__(7);
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(14);
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+
+
+
+
+var createLocation = function createLocation(path, state, key, currentLocation) {
+  var location = void 0;
+  if (typeof path === 'string') {
+    // Two-arg form: push(path, state)
+    location = Object(__WEBPACK_IMPORTED_MODULE_2__PathUtils__["d" /* parsePath */])(path);
+    location.state = state;
+  } else {
+    // One-arg form: push(location)
+    location = _extends({}, path);
+
+    if (location.pathname === undefined) location.pathname = '';
+
+    if (location.search) {
+      if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
+    } else {
+      location.search = '';
+    }
+
+    if (location.hash) {
+      if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
+    } else {
+      location.hash = '';
+    }
+
+    if (state !== undefined && location.state === undefined) location.state = state;
+  }
+
+  try {
+    location.pathname = decodeURI(location.pathname);
+  } catch (e) {
+    if (e instanceof URIError) {
+      throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
+    } else {
+      throw e;
+    }
+  }
+
+  if (key) location.key = key;
+
+  if (currentLocation) {
+    // Resolve incomplete/relative pathname relative to current location.
+    if (!location.pathname) {
+      location.pathname = currentLocation.pathname;
+    } else if (location.pathname.charAt(0) !== '/') {
+      location.pathname = Object(__WEBPACK_IMPORTED_MODULE_0_resolve_pathname__["default"])(location.pathname, currentLocation.pathname);
+    }
+  } else {
+    // When there is no prior location and pathname is empty, set it to /
+    if (!location.pathname) {
+      location.pathname = '/';
+    }
+  }
+
+  return location;
+};
+
+var locationsAreEqual = function locationsAreEqual(a, b) {
+  return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(__WEBPACK_IMPORTED_MODULE_1_value_equal__["default"])(a.state, b.state);
+};
+
+/***/ }),
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2208,7 +2208,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(12);
-  var warning = __webpack_require__(17);
+  var warning = __webpack_require__(18);
   var ReactPropTypesSecret = __webpack_require__(21);
   var loggedTypeFailures = {};
 }
@@ -4409,7 +4409,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_superagent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_superagent__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_materialize__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_materialize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_materialize__);
@@ -4602,7 +4602,7 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var m = __webpack_require__(11),
-    n = __webpack_require__(16),
+    n = __webpack_require__(17),
     p = __webpack_require__(7);
 function q(a) {
   for (var b = arguments.length - 1, e = "Minified React error #" + a + "; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++) {
@@ -4731,8 +4731,8 @@ if (process.env.NODE_ENV !== "production") {
 
     var _assign = __webpack_require__(11);
     var invariant = __webpack_require__(12);
-    var emptyObject = __webpack_require__(16);
-    var warning = __webpack_require__(17);
+    var emptyObject = __webpack_require__(17);
+    var warning = __webpack_require__(18);
     var emptyFunction = __webpack_require__(7);
     var checkPropTypes = __webpack_require__(20);
 
@@ -6083,7 +6083,7 @@ var aa = __webpack_require__(0),
     ea = __webpack_require__(34),
     ha = __webpack_require__(35),
     ia = __webpack_require__(36),
-    C = __webpack_require__(16);
+    C = __webpack_require__(17);
 function D(a) {
   for (var b = arguments.length - 1, c = "Minified React error #" + a + "; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++) {
     c += "\x26args[]\x3d" + encodeURIComponent(arguments[d + 1]);
@@ -8129,7 +8129,7 @@ module.exports = isNode;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(0);var invariant=__webpack_require__(12);var warning=__webpack_require__(17);var ExecutionEnvironment=__webpack_require__(31);var _assign=__webpack_require__(11);var emptyFunction$1=__webpack_require__(7);var EventListener=__webpack_require__(32);var getActiveElement=__webpack_require__(33);var shallowEqual=__webpack_require__(34);var containsNode=__webpack_require__(35);var focusNode=__webpack_require__(36);var emptyObject=__webpack_require__(16);var checkPropTypes=__webpack_require__(20);var hyphenateStyleName=__webpack_require__(57);var camelizeStyleName=__webpack_require__(59);/**
+ */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(0);var invariant=__webpack_require__(12);var warning=__webpack_require__(18);var ExecutionEnvironment=__webpack_require__(31);var _assign=__webpack_require__(11);var emptyFunction$1=__webpack_require__(7);var EventListener=__webpack_require__(32);var getActiveElement=__webpack_require__(33);var shallowEqual=__webpack_require__(34);var containsNode=__webpack_require__(35);var focusNode=__webpack_require__(36);var emptyObject=__webpack_require__(17);var checkPropTypes=__webpack_require__(20);var hyphenateStyleName=__webpack_require__(57);var camelizeStyleName=__webpack_require__(59);/**
  * WARNING: DO NOT manually require this module.
  * This is a replacement for `invariant(...)` used by the error code system
  * and will _only_ be required by the corresponding babel pass.
@@ -11366,7 +11366,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var emptyFunction = __webpack_require__(7);
 var invariant = __webpack_require__(12);
-var warning = __webpack_require__(17);
+var warning = __webpack_require__(18);
 var assign = __webpack_require__(11);
 
 var ReactPropTypesSecret = __webpack_require__(21);
@@ -13754,7 +13754,7 @@ Redirect.contextTypes = {
 /* unused harmony reexport createHashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(80);
 /* unused harmony reexport createMemoryHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(19);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(14);
@@ -13779,7 +13779,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(43);
@@ -14094,7 +14094,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(43);
@@ -14421,7 +14421,7 @@ var createHashHistory = function createHashHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(27);
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -16228,7 +16228,7 @@ var _Chip = __webpack_require__(46);
 
 var _Chip2 = _interopRequireDefault(_Chip);
 
-var _Col = __webpack_require__(15);
+var _Col = __webpack_require__(16);
 
 var _Col2 = _interopRequireDefault(_Col);
 
@@ -16765,7 +16765,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Col = __webpack_require__(15);
+var _Col = __webpack_require__(16);
 
 var _Col2 = _interopRequireDefault(_Col);
 
@@ -18030,7 +18030,7 @@ var _Row = __webpack_require__(29);
 
 var _Row2 = _interopRequireDefault(_Row);
 
-var _Col = __webpack_require__(15);
+var _Col = __webpack_require__(16);
 
 var _Col2 = _interopRequireDefault(_Col);
 
@@ -19036,7 +19036,7 @@ var _classnames = __webpack_require__(2);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Col = __webpack_require__(15);
+var _Col = __webpack_require__(16);
 
 var _Col2 = _interopRequireDefault(_Col);
 
@@ -20697,7 +20697,7 @@ var _Row = __webpack_require__(29);
 
 var _Row2 = _interopRequireDefault(_Row);
 
-var _Col = __webpack_require__(15);
+var _Col = __webpack_require__(16);
 
 var _Col2 = _interopRequireDefault(_Col);
 
@@ -20962,7 +20962,7 @@ exports.default = Toast;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(8);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21078,7 +21078,7 @@ var LoginForm = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21332,7 +21332,7 @@ var PrincipalPage = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_superagent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_superagent__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21473,7 +21473,7 @@ var MenuNav = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21499,10 +21499,36 @@ var CVForm = function (_React$Component) {
   CVForm.prototype.handleClick = function handleClick(e) {
     e.preventDefault();
     console.log(e);
-    if (this.refs.nombres.value !== '' && this.refs.apellidos.value !== '' && this.refs.sexo.value !== '') {
-      alert('enviado');
+    if (this.refs.nombres.value !== '' && this.refs.apellidos.value !== '' && this.refs.sexo.value !== '' && this.refs.fechaNacimiento.value !== '' && this.refs.direccion.value !== '' && this.refs.telefono.value !== '' && this.refs.email.value !== '') {
+      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.post('/api/cvs').send({
+        nombres: this.refs.nombres.value,
+        apellidos: this.refs.apellidos.value,
+        sexo: this.refs.sexo.value,
+        fechaNacimiento: this.refs.fechaNacimiento.value,
+        direccion: this.refs.direccion.value,
+        telefono: this.refs.telefono.value,
+        email: this.refs.email.value,
+        nombreInstituto: this.refs.nombreInstituto.value || null,
+        tituloAdquirido: this.refs.tituloAdquirido.value || null,
+        fechaInicioEdu: this.refs.fechaInicioEdu.value || null,
+        fechaTerminoEdu: this.refs.fechaTerminoEdu.value || null,
+        cedula: this.refs.cedula.value || null,
+        puesto: this.refs.puesto.value || null,
+        funciones: this.refs.funciones.value || null,
+        empresa: this.refs.empresa.value || null,
+        fechaInicioExp: this.refs.fechaInicioExp.value || null,
+        fechaTerminoExp: this.refs.fechaTerminoExp.value || null,
+        cursos: this.refs.cursos.value || null,
+        seminarios: this.refs.seminarios.value || null,
+        diplomados: this.refs.diplomados.value || null,
+        publicaciones: this.refs.publicaciones.value || null,
+        otros: this.refs.otros.value || null,
+        idiomas: this.refs.idiomas.value || null
+      }).then(function (newcv) {
+        console.log(newcv);
+      });
     } else {
-      alert('rayos');
+      alert('falta algun campo');
     }
   };
 
@@ -21645,11 +21671,11 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaNacimiento' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaNacimiento', required: true, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
-                  'Fecha de nacimiento'
+                  'Fecha de nacimiento yy-mm-dd'
                 )
               )
             ),
@@ -21702,7 +21728,7 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'email'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'email' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'email', className: 'validate', ref: 'email', required: true, pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
@@ -21744,7 +21770,22 @@ var CVForm = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'option',
                   { value: '4' },
+                  'Informatica'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
                   'Recursos Humanos'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  'Ventas'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  'Marketing'
                 )
               )
             )
@@ -21805,11 +21846,11 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioEdu' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioEdu', required: true, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
-                  'Fecha de inicio'
+                  'Fecha de inicio yyyy-mm-dd'
                 )
               )
             ),
@@ -21824,11 +21865,11 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoEdu' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoEdu', required: true, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
-                  'Fecha de termino'
+                  'Fecha de termino yyyy-mm-dd'
                 )
               )
             ),
@@ -21927,11 +21968,11 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioExp' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioExp', required: true, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
-                  'Fecha de inicio'
+                  'Fecha de inicio yyyy-mm-dd'
                 )
               )
             ),
@@ -21946,11 +21987,11 @@ var CVForm = function (_React$Component) {
                   { className: 'material-icons prefix' },
                   'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoExp' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoExp', required: true, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'label',
                   { htmlFor: 'icon_prefix' },
-                  'Fecha de termino'
+                  'Fecha de termino yyyy-mm-dd'
                 )
               )
             )

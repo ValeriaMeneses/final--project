@@ -11,13 +11,44 @@ export default class CVForm extends React.Component{
   handleClick(e){
     e.preventDefault();
     console.log(e);
-    if(this.refs.nombres.value !== ''  &&  this.refs.apellidos.value !== ''  &&  this.refs.sexo.value !== ''){
-      alert('enviado');
+    if(this.refs.nombres.value !== '' &&  this.refs.apellidos.value !== '' && this.refs.sexo.value !== ''  && this.refs.fechaNacimiento.value !== '' && this.refs.direccion.value !== '' && this.refs.telefono.value !=='' && this.refs.email.value !==''){
+      request
+        .post('/api/cvs')
+        .send({
+          nombres:this.refs.nombres.value,
+          apellidos:this.refs.apellidos.value,
+          sexo:this.refs.sexo.value,
+          fechaNacimiento:this.refs.fechaNacimiento.value,
+          direccion: this.refs.direccion.value,
+          telefono: this.refs.telefono.value,
+          email: this.refs.email.value,
+          nombreInstituto: this.refs.nombreInstituto.value || null,
+          tituloAdquirido:this.refs.tituloAdquirido.value || null,
+          fechaInicioEdu:this.refs.fechaInicioEdu.value || null,
+          fechaTerminoEdu:this.refs.fechaTerminoEdu.value || null,
+          cedula:this.refs.cedula.value || null,
+          puesto:this.refs.puesto.value || null,
+          funciones:this.refs.funciones.value || null,
+          empresa:this.refs.empresa.value || null,
+          fechaInicioExp:this.refs.fechaInicioExp.value || null,
+          fechaTerminoExp:this.refs.fechaTerminoExp.value || null,
+          cursos:this.refs.cursos.value || null,
+          seminarios:this.refs.seminarios.value || null,
+          diplomados:this.refs.diplomados.value || null,
+          publicaciones:this.refs.publicaciones.value || null,
+          otros:this.refs.otros.value || null,
+          idiomas:this.refs.idiomas.value || null
+        })
+        .then(newcv =>{
+          console.log(newcv);
+
+        })
     }else {
-      alert('rayos')
+      alert('falta algun campo')
     }
 
   }
+
   render(){
     return(
       <div className="cvForm">
@@ -56,8 +87,8 @@ export default class CVForm extends React.Component{
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">date_range</i>
-                  <input type="text" className="validate" ref="fechaNacimiento"/>
-                  <label htmlFor="icon_prefix">Fecha de nacimiento</label>
+                  <input type="text" className="validate" ref="fechaNacimiento" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                  <label htmlFor="icon_prefix">Fecha de nacimiento yy-mm-dd</label>
                 </div>
               </div>
               <div className="row ">
@@ -77,7 +108,7 @@ export default class CVForm extends React.Component{
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">email</i>
-                  <input type="text" className="validate" ref="email"/>
+                  <input type="email" className="validate" ref="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                   <label htmlFor="icon_prefix">E-mail</label>
                 </div>
               </div>
@@ -88,7 +119,10 @@ export default class CVForm extends React.Component{
                   <option value="1">Administracion</option>
                   <option value="2">Contabilidad</option>
                   <option value="3">Ingenieria</option>
-                  <option value="4">Recursos Humanos</option>
+                  <option value="4">Informatica</option>
+                  <option value="5">Recursos Humanos</option>
+                  <option value="6">Ventas</option>
+                  <option value="7">Marketing</option>
                 </select>
               </div>
             </form>
@@ -112,15 +146,15 @@ export default class CVForm extends React.Component{
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">date_range</i>
-                  <input type="text" className="validate" ref="fechaInicioEdu"/>
-                  <label htmlFor="icon_prefix">Fecha de inicio</label>
+                  <input type="text" className="validate" ref="fechaInicioEdu" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                  <label htmlFor="icon_prefix">Fecha de inicio yyyy-mm-dd</label>
                 </div>
               </div>
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">date_range</i>
-                  <input type="text" className="validate" ref="fechaTerminoEdu"/>
-                  <label htmlFor="icon_prefix">Fecha de termino</label>
+                  <input type="text" className="validate" ref="fechaTerminoEdu" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                  <label htmlFor="icon_prefix">Fecha de termino yyyy-mm-dd</label>
                 </div>
               </div>
               <div className="row ">
@@ -158,15 +192,15 @@ export default class CVForm extends React.Component{
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">date_range</i>
-                  <input type="text" className="validate" ref="fechaInicioExp"/>
-                  <label htmlFor="icon_prefix">Fecha de inicio</label>
+                  <input type="text" className="validate" ref="fechaInicioExp" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                  <label htmlFor="icon_prefix">Fecha de inicio yyyy-mm-dd</label>
                 </div>
               </div>
               <div className="row ">
                 <div className="input-field col s6">
                   <i className="material-icons prefix">date_range</i>
-                  <input type="text" className="validate" ref="fechaTerminoExp"/>
-                  <label htmlFor="icon_prefix">Fecha de termino</label>
+                  <input type="text" className="validate" ref="fechaTerminoExp" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                  <label htmlFor="icon_prefix">Fecha de termino yyyy-mm-dd</label>
                 </div>
               </div>
             </form>
