@@ -92,7 +92,8 @@ h2{
 }
 
 .cvForm{
-  background-image: url("../images/3.jpg");
+  /*background-image: url("../images/3.jpg");*/
+  background: crimson;
   background-size: cover;
   padding: 2%;
   width: 100%;

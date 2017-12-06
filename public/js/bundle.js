@@ -21473,11 +21473,14 @@ var MenuNav = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -21487,593 +21490,606 @@ var CVForm = function (_React$Component) {
   function CVForm() {
     _classCallCheck(this, CVForm);
 
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
+
+  CVForm.prototype.handleClick = function handleClick(e) {
+    e.preventDefault();
+    console.log(e);
+    if (this.refs.nombres.value !== '' && this.refs.apellidos.value !== '' && this.refs.sexo.value !== '') {
+      alert('enviado');
+    } else {
+      alert('rayos');
+    }
+  };
 
   CVForm.prototype.render = function render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "cvForm" },
+      'div',
+      { className: 'cvForm' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "cv" },
+        'div',
+        { className: 'cv' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "ul",
-          { id: "tabs-swipe-demo", className: "tabs" },
+          'ul',
+          { id: 'tabs-swipe-demo', className: 'tabs' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "li",
-            { className: "tab col s3" },
+            'li',
+            { className: 'tab col s3' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { className: "active", href: "#test-swipe-1" },
-              "Informaci\xF3n B\xE1sica"
+              'a',
+              { className: 'active', href: '#test-swipe-1' },
+              'Informaci\xF3n B\xE1sica'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "li",
-            { className: "tab col s3" },
+            'li',
+            { className: 'tab col s3' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "#test-swipe-2" },
-              "Formaci\xF3n Acad\xE9mica"
+              'a',
+              { href: '#test-swipe-2' },
+              'Formaci\xF3n Acad\xE9mica'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "li",
-            { className: "tab col s3" },
+            'li',
+            { className: 'tab col s3' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "#test-swipe-3" },
-              "Experiencia Laboral"
+              'a',
+              { href: '#test-swipe-3' },
+              'Experiencia Laboral'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "li",
-            { className: "tab col s3" },
+            'li',
+            { className: 'tab col s3' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "#test-swipe-4" },
-              "Informaci\xF3n Adicional"
+              'a',
+              { href: '#test-swipe-4' },
+              'Informaci\xF3n Adicional'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "li",
-            { className: "tab col s3" },
+            'li',
+            { className: 'tab col s3' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "#test-swipe-5" },
-              "Idiomas"
+              'a',
+              { href: '#test-swipe-5' },
+              'Idiomas'
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { id: "test-swipe-1", className: "col s12" },
+          'div',
+          { id: 'test-swipe-1', className: 'col s12' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "form",
-            { className: "col s12" },
+            'form',
+            { className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "perm_identity"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'perm_identity'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'nombres' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Nombre (s)"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Nombre (s)'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "perm_identity"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'perm_identity'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'apellidos' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Apellidos"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Apellidos'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row select" },
+              'div',
+              { className: 'row select' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "label",
+                'label',
                 null,
-                "Sexo"
+                'Sexo'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'sexo' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Choose your option"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Choose your option'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "F" },
-                  "Femenino"
+                  'option',
+                  { value: 'femenino' },
+                  'Femenino'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "M" },
-                  "Masculino"
+                  'option',
+                  { value: 'masculino' },
+                  'Masculino'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "date_range"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaNacimiento' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Fecha de nacimiento"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Fecha de nacimiento'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "person_pin_circle"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'person_pin_circle'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'direccion' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Direccion"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Direccion'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "phone"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'phone'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'telefono' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Telefono"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Telefono'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "email"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'email'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'email' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "E-mail"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'E-mail'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row select" },
+              'div',
+              { className: 'row select' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "label",
+                'label',
                 null,
-                "Categoria"
+                'Categoria'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'categoria' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Choose your option"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Choose your option'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "Administracion"
+                  'option',
+                  { value: '1' },
+                  'Administracion'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "Contabilidad"
+                  'option',
+                  { value: '2' },
+                  'Contabilidad'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "Ingenieria"
+                  'option',
+                  { value: '3' },
+                  'Ingenieria'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "4" },
-                  "Recursos Humanos"
+                  'option',
+                  { value: '4' },
+                  'Recursos Humanos'
                 )
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { id: "test-swipe-2", className: "col s12" },
+          'div',
+          { id: 'test-swipe-2', className: 'col s12' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "form",
-            { className: "col s12" },
+            'form',
+            { className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "location_city"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'location_city'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'nombreInstituto' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Nombre de la Instituci\xF3n"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Nombre de la Instituci\xF3n'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "school"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'school'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'tituloAdquirido' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Titulo adquirido"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Titulo adquirido'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "date_range"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioEdu' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Fecha de inicio"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Fecha de inicio'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "date_range"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoEdu' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Fecha de termino"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Fecha de termino'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "school"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'school'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'cedula' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "No. de cedula"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'No. de cedula'
                 )
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { id: "test-swipe-3", className: "col s12" },
+          'div',
+          { id: 'test-swipe-3', className: 'col s12' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "form",
-            { className: "col s12" },
+            'form',
+            { className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "assignment_ind"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'assignment_ind'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'puesto' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Puesto"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Puesto'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "transfer_within_a_station"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'transfer_within_a_station'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'funciones' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Funciones"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Funciones'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "domain"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'domain'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'empresa' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Empresa"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Empresa'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "date_range"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaInicioExp' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Fecha de inicio"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Fecha de inicio'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "date_range"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'date_range'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "validate" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'validate', ref: 'fechaTerminoExp' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Fecha de termino"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Fecha de termino'
                 )
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { id: "test-swipe-4", className: "col s12" },
+          'div',
+          { id: 'test-swipe-4', className: 'col s12' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "form",
-            { className: "col s12" },
+            'form',
+            { className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "insert_drive_file"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'insert_drive_file'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'cursos' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Cursos"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Cursos'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "school"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'school'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'seminarios' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Seminarios"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Seminarios'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "school"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'school'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'diplomados' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Diplomados"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Diplomados'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "insert_drive_file"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'insert_drive_file'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'publicaciones' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Publicaciones"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Publicaciones'
                 )
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row " },
+              'div',
+              { className: 'row ' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "input-field col s6" },
+                'div',
+                { className: 'input-field col s6' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons prefix" },
-                  "note"
+                  'i',
+                  { className: 'material-icons prefix' },
+                  'note'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'otros' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "label",
-                  { htmlFor: "icon_prefix" },
-                  "Otros"
+                  'label',
+                  { htmlFor: 'icon_prefix' },
+                  'Otros'
                 )
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { id: "test-swipe-5", className: "col s12" },
+          'div',
+          { id: 'test-swipe-5', className: 'col s12' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "row " },
+            'div',
+            { className: 'row ' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "input-field col s6" },
+              'div',
+              { className: 'input-field col s6' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "i",
-                { className: "material-icons prefix" },
-                "record_voice_over"
+                'i',
+                { className: 'material-icons prefix' },
+                'record_voice_over'
               ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'idiomas' }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "label",
-                { htmlFor: "icon_prefix" },
-                "Idiomas"
+                'label',
+                { htmlFor: 'icon_prefix' },
+                'Idiomas'
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "button",
-          { className: "btn waves-effect waves-light", type: "submit", name: "action" },
-          "Registrar",
+          'button',
+          { className: 'btn waves-effect waves-light', type: 'submit', name: 'action', onClick: this.handleClick },
+          'Registrar',
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "i",
-            { className: "material-icons right" },
-            "send"
+            'i',
+            { className: 'material-icons right' },
+            'send'
           )
         )
       )

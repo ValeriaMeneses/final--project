@@ -1,20 +1,44 @@
 const Router = require('express').Router;
 const fs = require('fs-extra');
+const CV = require('../models/CV.js');
+
 
 const apiRouter = Router();
 
+function getCVs(req, res) {
+  CV
+    .query()
+    .then(data => res.json(data));
+}
+
+function getCvId(req, res) {
+  CV
+    .query()
+    .findById(req.params.id)
+    .then(cv => {
+      return res.json(cv).status(200)
+    })
+    .catch(error => {
+      return res.send(error).status(500)
+    });
+}
+
+function createCV(req, res) {
+  CV
+    .query()
+    .insert(req.body)
+    .then(newCv =>{
+      return res.json(newCv).status(200);
+    })
+    .catch(error => {
+      return res.send(error).status(500);
+    })
+
+}
+
 apiRouter
-  .get('/cvs', (req, res) => {
-    res.json([
-              {
-                title: 'SQL Server Administrator - Postgres',
-                description: 'Bring to the table win-win survival strategies to ensure proactive domination. User generated content in real-time will have multiple touchpoints for offshoring.',
-                location: 'Guadalajara',
-                salary: 27000,
-                fullTime: true,
-                companyId: 1
-              }
-            ]);
-});
+  .get('/cvs', getCVs)
+  .get('/cvs/:id', getCvId)
+  .post('/cvs', createCV);
 
 module.exports = apiRouter;
