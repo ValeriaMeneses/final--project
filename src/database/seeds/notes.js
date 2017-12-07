@@ -7,7 +7,6 @@ const notesDataRows = [
     facilidadComunicacion: 10,
     creatividad:8,
     curriculumsId:1
-
   }
 ];
 

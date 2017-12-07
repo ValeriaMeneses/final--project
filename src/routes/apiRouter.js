@@ -9,7 +9,6 @@ const apiRouter = Router();
 function getCVs(req, res) {
   CV
     .query()
-    .eager('notes')
     .then(data => res.json(data));
 }
 
@@ -41,6 +40,7 @@ function createCV(req, res) {
 function getNotes(req, res) {
   Notes
     .query()
+    .eager('curriculums')
     .then(data => res.json(data));
 }
 
