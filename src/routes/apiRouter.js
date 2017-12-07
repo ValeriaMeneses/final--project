@@ -1,6 +1,7 @@
 const Router = require('express').Router;
 const fs = require('fs-extra');
 const CV = require('../models/CV.js');
+const Notes = require('../models/Notes.js');
 
 
 const apiRouter = Router();
@@ -8,6 +9,7 @@ const apiRouter = Router();
 function getCVs(req, res) {
   CV
     .query()
+    .eager('notes')
     .then(data => res.json(data));
 }
 
@@ -36,9 +38,20 @@ function createCV(req, res) {
 
 }
 
+function getNotes(req, res) {
+  Notes
+    .query()
+    .then(data => res.json(data));
+}
+
+apiRouter
+  .get('/notes', getNotes);
+
 apiRouter
   .get('/cvs', getCVs)
   .get('/cvs/:id', getCvId)
   .post('/cvs', createCV);
+
+
 
 module.exports = apiRouter;
