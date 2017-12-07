@@ -44,8 +44,22 @@ function getNotes(req, res) {
     .then(data => res.json(data));
 }
 
+function createNote(req, res) {
+  Notes
+    .query()
+    .insert(req.body)
+    .then(newNote =>{
+      return res.json(newNote).status(200);
+    })
+    .catch(error => {
+      return res.send(error).status(500);
+    })
+
+}
+
 apiRouter
-  .get('/notes', getNotes);
+  .get('/notes', getNotes)
+  .post('/notes', getNotes);
 
 apiRouter
   .get('/cvs', getCVs)

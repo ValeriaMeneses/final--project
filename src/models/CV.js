@@ -5,6 +5,5 @@ class CV extends Model {
     return 'curriculums';
   }
 
-
 }
 module.exports = CV;
