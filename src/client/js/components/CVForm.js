@@ -254,7 +254,7 @@ export default class CVForm extends React.Component{
               </div>
             </div>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleClick}>Registrar
+          <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleClick}>Crear
             <i className="material-icons right">send</i>
           </button>
         </div>

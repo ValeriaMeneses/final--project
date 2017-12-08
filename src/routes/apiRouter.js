@@ -40,6 +40,7 @@ function createCV(req, res) {
 function getNotes(req, res) {
   Notes
     .query()
+    .eager('curriculums')
     .then(data => res.json(data));
 }
 

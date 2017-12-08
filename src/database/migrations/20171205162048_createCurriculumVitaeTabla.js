@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
 
       table.string('nombres');
       table.string('apellidos');
-      table.enu('sexo', ['femenino', 'masculino'])
+      table.enu('sexo', ['femenino', 'masculino']);
       table.date('fechaNacimiento');
       table.text('direccion');
       table.string('telefono');

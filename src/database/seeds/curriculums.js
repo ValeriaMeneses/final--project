@@ -48,6 +48,33 @@ const CVdataRows=[
     publicaciones:'nada',
     otros:'otro',
     idiomas:'ingles'
+  },
+  {
+    {
+      nombres:'jose',
+      apellidos:'perez',
+      sexo:'masculino',
+      fechaNacimiento:'1989-09-22',
+      direccion:'Av. del trabajo 12 Texcoco',
+      telefono: '5599999555',
+      email:'jose@mail.com',
+      nombreInstituto:'UNAM',
+      tituloAdquirido:'contabilidad',
+      fechaInicioEdu:'1999-01-22',
+      fechaTerminoEdu:'2001-10-22',
+      cedula:'109456',
+      puesto:'contador',
+      funciones:'contar',
+      empresa:'Patito',
+      fechaInicioExp:'2014-08-22',
+      fechaTerminoExp:'2015-04-22',
+      cursos:'conta, otro, otro',
+      seminarios:'conta, otro, otro',
+      diplomados:'ninguno',
+      publicaciones:'nada',
+      otros:'otro',
+      idiomas:'ingles'
+    }
   }
 ];
 
