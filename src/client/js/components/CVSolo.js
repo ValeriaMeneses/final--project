@@ -1,6 +1,35 @@
 import React from 'react';
+import request from 'superagent';
 
 export default class CVSolo extends React.Component{
+  constructor(){
+    super();
+
+    this._handleClick = this._handleClick.bind(this);
+  }
+
+  _handleClick(e){
+    e.preventDefault();
+    console.log(e);
+    if (this.refs.trabajoEquipo.value !==''  &&  this.refs.liderazgo.value !== ''  && this.refs.conocimientoTecnico.value !== ''  &&  this.refs.facilidadComunicacion.value !== ''  &&  this.refs.creatividad.value !== ''  &&  this.refs.note.value !== '') {
+      request
+        .post('/api/notes')
+        .send({
+          note:this.refs.note.value,
+          trabajoEquipo:this.refs.trabajoEquipo.value,
+          liderazgo:this.refs.liderazgo.value,
+          conocimientoTecnico:this.refs.conocimientoTecnico.value,
+          facilidadComunicacion:this.refs.facilidadComunicacion.value,
+          creatividad:this.refs.creatividad.value
+        })
+        .then(newNote => {
+          console.log(newNote);
+          alert('enviado')
+        })
+    }else {
+      alert('falta algun campo')
+    }
+  }
   render(){
     return(
       <div className= "cvsolo">
@@ -135,65 +164,91 @@ export default class CVSolo extends React.Component{
             <div>
               <h6>Trabajo en equipo</h6>
               <div>
-                <select className="browser-default">
+                <select className="browser-default" ref="trabajoEquipo">
                   <option value="" disabled selected>Selecionar</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="3">5</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+
                 </select>
               </div>
             </div>
             <div>
               <h6>Liderazgo</h6>
               <div>
-                <select className="browser-default">
+                <select className="browser-default" ref="liderazgo">
                   <option value="" disabled selected>Selecionar</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="3">5</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
               </div>
             </div>
             <div>
               <h6>Conocimiento Tecnico</h6>
               <div>
-                <select className="browser-default">
+                <select className="browser-default" ref="conocimientoTecnico">
                   <option value="" disabled selected>Selecionar</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="3">5</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
               </div>
             </div>
             <div>
               <h6>Facilidad de comunicacion</h6>
               <div>
-                <select className="browser-default">
+                <select className="browser-default" ref="facilidadComunicacion">
                   <option value="" disabled selected>Selecionar</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="3">5</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
               </div>
             </div>
             <div>
               <h6>Creatividad</h6>
               <div>
-                <select className="browser-default">
+                <select className="browser-default" ref="creatividad">
                   <option value="" disabled selected>Selecionar</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="3">4</option>
-                  <option value="3">5</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
                 </select>
               </div>
             </div>
@@ -204,10 +259,10 @@ export default class CVSolo extends React.Component{
               <form className="col s12">
                 <div className="row">
                   <div className="input-field col s12">
-                    <textarea id="textarea1" className="materialize-textarea"></textarea>
+                    <textarea id="textarea1" className="materialize-textarea" ref="note"></textarea>
                   </div>
                 </div>
-                <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this._handleClick}>Agregar
                   <i className="material-icons right">send</i>
                 </button>
               </form>

@@ -41,6 +41,7 @@ export default class CVForm extends React.Component{
         })
         .then(newcv =>{
           console.log(newcv);
+          alert('enviado')
 
         })
     }else {

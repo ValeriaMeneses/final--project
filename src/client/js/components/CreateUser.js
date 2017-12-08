@@ -21,6 +21,7 @@ export default class CreateUser extends React.Component{
         })
         .then(newUser=>{
           console.log(newUser);
+          alert('enviado')
         })
     } else {
       alert('falta algun campo')

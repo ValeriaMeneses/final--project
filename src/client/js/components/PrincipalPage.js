@@ -7,7 +7,7 @@ export default class PrincipalPage extends React.Component{
     return(
       <div className="principalPage ">
         <div className="cvs col s4">
-          <Link to="#" className="waves-effect " type="submit" name="action">
+          <Link to="/filtros" className="waves-effect " type="submit" name="action">
             <i className="material-icons">folder_shared</i>
             <br/>
             Curriculums Vitae
@@ -21,7 +21,7 @@ export default class PrincipalPage extends React.Component{
           </Link>
         </div>
         <div className="entrevista col s4">
-          <Link to="#" className="waves-effect " type="submit" name="action">
+          <Link to="/dinamic/cv" className="waves-effect " type="submit" name="action">
             <i className="material-icons">assignment_ind</i>
             <br/>
             Entrevista

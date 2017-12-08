@@ -23,6 +23,31 @@ const CVdataRows=[
     publicaciones:'nada',
     otros:'otro',
     idiomas:'ingles'
+  },
+  {
+    nombres:'oscar',
+    apellidos:'aguilar',
+    sexo:'masculino',
+    fechaNacimiento:'1990-12-22',
+    direccion:'Av. morelos 12 Totolcingo',
+    telefono: '5555555555',
+    email:'oscar@mail.com',
+    nombreInstituto:'UTTEC',
+    tituloAdquirido:'administracion',
+    fechaInicioEdu:'2012-01-22',
+    fechaTerminoEdu:'2015-10-22',
+    cedula:'123456',
+    puesto:'recursos humanos',
+    funciones:'reclutacion',
+    empresa:'FITSA',
+    fechaInicioExp:'2014-08-22',
+    fechaTerminoExp:'2015-08-22',
+    cursos:'admon, otro, otro',
+    seminarios:'admon, otro, otro',
+    diplomados:'ninguno',
+    publicaciones:'nada',
+    otros:'otro',
+    idiomas:'ingles'
   }
 ];
 

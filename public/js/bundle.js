@@ -21112,6 +21112,7 @@ var CreateUser = function (_React$Component) {
         password: this.refs.password.value
       }).then(function (newUser) {
         console.log(newUser);
+        alert('enviado');
       });
     } else {
       alert('falta algun campo');
@@ -21276,7 +21277,7 @@ var PrincipalPage = function (_React$Component) {
         { className: 'cvs col s4' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-          { to: '#', className: 'waves-effect ', type: 'submit', name: 'action' },
+          { to: '/filtros', className: 'waves-effect ', type: 'submit', name: 'action' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'i',
             { className: 'material-icons' },
@@ -21306,7 +21307,7 @@ var PrincipalPage = function (_React$Component) {
         { className: 'entrevista col s4' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-          { to: '#', className: 'waves-effect ', type: 'submit', name: 'action' },
+          { to: '/dinamic/cv', className: 'waves-effect ', type: 'submit', name: 'action' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'i',
             { className: 'material-icons' },
@@ -21409,7 +21410,20 @@ var MenuNav = function (_React$Component) {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'CV\'s' },
+              { to: '/cv-form', className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'Agregar CV' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'i',
+                { className: 'material-icons' },
+                'description'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'li',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: '/filtros', className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'CV\'s' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'i',
                 { className: 'material-icons' },
@@ -21435,7 +21449,7 @@ var MenuNav = function (_React$Component) {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'Entrevista' },
+              { to: '/dinamic/cv', className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'Entrevista' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'i',
                 { className: 'material-icons' },
@@ -21526,6 +21540,7 @@ var CVForm = function (_React$Component) {
         idiomas: this.refs.idiomas.value || null
       }).then(function (newcv) {
         console.log(newcv);
+        alert('enviado');
       });
     } else {
       alert('falta algun campo');
@@ -22306,11 +22321,14 @@ var FiltroCVs = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -22320,655 +22338,678 @@ var CVSolo = function (_React$Component) {
   function CVSolo() {
     _classCallCheck(this, CVSolo);
 
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this));
+
+    _this._handleClick = _this._handleClick.bind(_this);
+    return _this;
   }
+
+  CVSolo.prototype._handleClick = function _handleClick(e) {
+    e.preventDefault();
+    console.log(e);
+    if (this.refs.trabajoEquipo.value !== '' && this.refs.liderazgo.value !== '' && this.refs.conocimientoTecnico.value !== '' && this.refs.facilidadComunicacion.value !== '' && this.refs.creatividad.value !== '' && this.refs.note.value !== '') {
+      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.post('/api/notes').send({
+        note: this.refs.note.value,
+        trabajoEquipo: this.refs.trabajoEquipo.value,
+        liderazgo: this.refs.liderazgo.value,
+        conocimientoTecnico: this.refs.conocimientoTecnico.value,
+        facilidadComunicacion: this.refs.facilidadComunicacion.value,
+        creatividad: this.refs.creatividad.value
+      }).then(function (newNote) {
+        console.log(newNote);
+        alert('enviado');
+      });
+    } else {
+      alert('falta algun campo');
+    }
+  };
 
   CVSolo.prototype.render = function render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      { className: "cvsolo" },
+      'div',
+      { className: 'cvsolo' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "contenedor-cv" },
+        'div',
+        { className: 'contenedor-cv' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "informacion" },
+          'div',
+          { className: 'informacion' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "ul",
-            { id: "tabs-swipe-demo", className: "tabs blue" },
+            'ul',
+            { id: 'tabs-swipe-demo', className: 'tabs blue' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "li",
-              { className: "tab col s3" },
+              'li',
+              { className: 'tab col s3' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "active", href: "#test-swipe-1" },
-                "Informaci\xF3n B\xE1sica"
+                'a',
+                { className: 'active', href: '#test-swipe-1' },
+                'Informaci\xF3n B\xE1sica'
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "li",
-              { className: "tab col s3" },
+              'li',
+              { className: 'tab col s3' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { href: "#test-swipe-2" },
-                "Formaci\xF3n Acad\xE9mica"
+                'a',
+                { href: '#test-swipe-2' },
+                'Formaci\xF3n Acad\xE9mica'
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "li",
-              { className: "tab col s3" },
+              'li',
+              { className: 'tab col s3' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { href: "#test-swipe-3" },
-                "Experiencia Laboral"
+                'a',
+                { href: '#test-swipe-3' },
+                'Experiencia Laboral'
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "li",
-              { className: "tab col s3" },
+              'li',
+              { className: 'tab col s3' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { href: "#test-swipe-4" },
-                "Informaci\xF3n Adicional"
+                'a',
+                { href: '#test-swipe-4' },
+                'Informaci\xF3n Adicional'
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "li",
-              { className: "tab col s3" },
+              'li',
+              { className: 'tab col s3' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { href: "#test-swipe-5" },
-                "Idiomas"
+                'a',
+                { href: '#test-swipe-5' },
+                'Idiomas'
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { id: "test-swipe-1", className: "col s12" },
+            'div',
+            { id: 'test-swipe-1', className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "collapsible", "data-collapsible": "expandable" },
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "perm_identity"
+                    'i',
+                    { className: 'material-icons' },
+                    'perm_identity'
                   ),
-                  "Nombre(s)"
+                  'Nombre(s)'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Valeria Irais"
+                    'Valeria Irais'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "perm_identity"
+                    'i',
+                    { className: 'material-icons' },
+                    'perm_identity'
                   ),
-                  "Apellido(s)"
+                  'Apellido(s)'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Meneses Aguilar"
+                    'Meneses Aguilar'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "wc"
+                    'i',
+                    { className: 'material-icons' },
+                    'wc'
                   ),
-                  "Sexo"
+                  'Sexo'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Femenino"
+                    'Femenino'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
                   ),
-                  "Fecha de nacimiento"
+                  'Fecha de nacimiento'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "18-Febrero-1993"
+                    '18-Febrero-1993'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "person_pin_circle"
+                    'i',
+                    { className: 'material-icons' },
+                    'person_pin_circle'
                   ),
-                  "Direccion"
+                  'Direccion'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Av. Morelos no.12 San miguel Totolcingo, Acolman,..."
+                    'Av. Morelos no.12 San miguel Totolcingo, Acolman,...'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "phone"
+                    'i',
+                    { className: 'material-icons' },
+                    'phone'
                   ),
-                  "Telefono"
+                  'Telefono'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "5565656565"
+                    '5565656565'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "email"
+                    'i',
+                    { className: 'material-icons' },
+                    'email'
                   ),
-                  "E-mail"
+                  'E-mail'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "vale@mail.com"
+                    'vale@mail.com'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "filter_list"
+                    'i',
+                    { className: 'material-icons' },
+                    'filter_list'
                   ),
-                  "Categoria"
+                  'Categoria'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Ingenieria"
-                  )
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { id: "test-swipe-2", className: "col s12" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "collapsible", "data-collapsible": "expandable" },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "location_city"
-                  ),
-                  "Nombre de la Instituci\xF3n"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "Muktek academy"
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "school"
-                  ),
-                  "Titulo adquirido"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "Full stack en javascript"
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
-                  ),
-                  "Fecha de inicio"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "Septiembre 2017"
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
-                  ),
-                  "Fecha de inicio"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "Septiembre 2017"
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
-                  ),
-                  "Fecha de termino"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "Diciembre 2017"
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "school"
-                  ),
-                  "No. de cedula"
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    null,
-                    "123"
+                    'Ingenieria'
                   )
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { id: "test-swipe-3", className: "col s12" },
+            'div',
+            { id: 'test-swipe-2', className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "collapsible", "data-collapsible": "expandable" },
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "assignment_ind"
+                    'i',
+                    { className: 'material-icons' },
+                    'location_city'
                   ),
-                  "Puesto"
+                  'Nombre de la Instituci\xF3n'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Developer jr"
+                    'Muktek academy'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "transfer_within_a_station"
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
                   ),
-                  "Funciones"
+                  'Titulo adquirido'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Developer jr"
+                    'Full stack en javascript'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "domain"
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
                   ),
-                  "Empresa"
+                  'Fecha de inicio'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Google"
+                    'Septiembre 2017'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
                   ),
-                  "Fecha de inicio"
+                  'Fecha de inicio'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "today"
+                    'Septiembre 2017'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "date_range"
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
                   ),
-                  "Fecha de termino"
+                  'Fecha de termino'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "today"
+                    'Diciembre 2017'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'No. de cedula'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    '123'
                   )
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { id: "test-swipe-4", className: "col s12" },
+            'div',
+            { id: 'test-swipe-3', className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "collapsible", "data-collapsible": "expandable" },
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "insert_drive_file"
+                    'i',
+                    { className: 'material-icons' },
+                    'assignment_ind'
                   ),
-                  "Cursos"
+                  'Puesto'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Lorem isum"
+                    'Developer jr'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "school"
+                    'i',
+                    { className: 'material-icons' },
+                    'transfer_within_a_station'
                   ),
-                  "Seminarios"
+                  'Funciones'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Lorem isum"
+                    'Developer jr'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "school"
+                    'i',
+                    { className: 'material-icons' },
+                    'domain'
                   ),
-                  "Diplomados"
+                  'Empresa'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Lorem isum"
+                    'Google'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "note"
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
                   ),
-                  "Otros"
+                  'Fecha de inicio'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Lorem isum"
+                    'today'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de termino'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'today'
                   )
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { id: "test-swipe-5", className: "col s12" },
+            'div',
+            { id: 'test-swipe-4', className: 'col s12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "collapsible", "data-collapsible": "expandable" },
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-header" },
+                  'div',
+                  { className: 'collapsible-header' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "record_voice_over"
+                    'i',
+                    { className: 'material-icons' },
+                    'insert_drive_file'
                   ),
-                  "Idiomas"
+                  'Cursos'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "collapsible-body" },
+                  'div',
+                  { className: 'collapsible-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Lorem isum"
+                    'Lorem isum'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'Seminarios'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'Lorem isum'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'Diplomados'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'Lorem isum'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'note'
+                  ),
+                  'Otros'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'Lorem isum'
+                  )
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-5', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'record_voice_over'
+                  ),
+                  'Idiomas'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'Lorem isum'
                   )
                 )
               )
@@ -22976,280 +23017,405 @@ var CVSolo = function (_React$Component) {
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "habilidades" },
+          'div',
+          { className: 'habilidades' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h5",
+            'h5',
             null,
-            "Habilidades"
+            'Habilidades'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
+            'div',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h6",
+              'h6',
               null,
-              "Trabajo en equipo"
+              'Trabajo en equipo'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
+              'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'trabajoEquipo' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Selecionar"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "1"
+                  'option',
+                  { value: '1' },
+                  '1'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "2"
+                  'option',
+                  { value: '2' },
+                  '2'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "3"
+                  'option',
+                  { value: '3' },
+                  '3'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "4"
+                  'option',
+                  { value: '4' },
+                  '4'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "5"
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
+            'div',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h6",
+              'h6',
               null,
-              "Liderazgo"
+              'Liderazgo'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
+              'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'liderazgo' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Selecionar"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "1"
+                  'option',
+                  { value: '1' },
+                  '1'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "2"
+                  'option',
+                  { value: '2' },
+                  '2'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "3"
+                  'option',
+                  { value: '3' },
+                  '3'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "4"
+                  'option',
+                  { value: '4' },
+                  '4'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "5"
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
+            'div',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h6",
+              'h6',
               null,
-              "Conocimiento Tecnico"
+              'Conocimiento Tecnico'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
+              'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'conocimientoTecnico' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Selecionar"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "1"
+                  'option',
+                  { value: '1' },
+                  '1'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "2"
+                  'option',
+                  { value: '2' },
+                  '2'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "3"
+                  'option',
+                  { value: '3' },
+                  '3'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "4"
+                  'option',
+                  { value: '4' },
+                  '4'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "5"
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
+            'div',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h6",
+              'h6',
               null,
-              "Facilidad de comunicacion"
+              'Facilidad de comunicacion'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
+              'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'facilidadComunicacion' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Selecionar"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "1"
+                  'option',
+                  { value: '1' },
+                  '1'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "2"
+                  'option',
+                  { value: '2' },
+                  '2'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "3"
+                  'option',
+                  { value: '3' },
+                  '3'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "4"
+                  'option',
+                  { value: '4' },
+                  '4'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "5"
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
+            'div',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h6",
+              'h6',
               null,
-              "Creatividad"
+              'Creatividad'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
+              'div',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "select",
-                { className: "browser-default" },
+                'select',
+                { className: 'browser-default', ref: 'creatividad' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "", disabled: true, selected: true },
-                  "Selecionar"
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "1" },
-                  "1"
+                  'option',
+                  { value: '1' },
+                  '1'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "2" },
-                  "2"
+                  'option',
+                  { value: '2' },
+                  '2'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "3"
+                  'option',
+                  { value: '3' },
+                  '3'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "4"
+                  'option',
+                  { value: '4' },
+                  '4'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "option",
-                  { value: "3" },
-                  "5"
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
                 )
               )
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "notas" },
+          'div',
+          { className: 'notas' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h5",
+            'h5',
             null,
-            "Notas"
+            'Notas'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "row" },
+            'div',
+            { className: 'row' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "form",
-              { className: "col s12" },
+              'form',
+              { className: 'col s12' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "row" },
+                'div',
+                { className: 'row' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "input-field col s12" },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { id: "textarea1", className: "materialize-textarea" })
+                  'div',
+                  { className: 'input-field col s12' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'note' })
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "button",
-                { className: "btn waves-effect waves-light", type: "submit", name: "action" },
-                "Submit",
+                'button',
+                { className: 'btn waves-effect waves-light', type: 'submit', name: 'action', onClick: this._handleClick },
+                'Agregar',
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "i",
-                  { className: "material-icons right" },
-                  "send"
+                  'i',
+                  { className: 'material-icons right' },
+                  'send'
                 )
               )
             )
