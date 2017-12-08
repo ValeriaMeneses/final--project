@@ -13,14 +13,15 @@ export default class CVSolo extends React.Component{
     console.log(e);
     if (this.refs.trabajoEquipo.value !==''  &&  this.refs.liderazgo.value !== ''  && this.refs.conocimientoTecnico.value !== ''  &&  this.refs.facilidadComunicacion.value !== ''  &&  this.refs.creatividad.value !== ''  &&  this.refs.note.value !== '') {
       request
-        .post('/api/notes')
+        .put('/api/cvs/1')
         .send({
           note:this.refs.note.value,
           trabajoEquipo:this.refs.trabajoEquipo.value,
           liderazgo:this.refs.liderazgo.value,
           conocimientoTecnico:this.refs.conocimientoTecnico.value,
           facilidadComunicacion:this.refs.facilidadComunicacion.value,
-          creatividad:this.refs.creatividad.value
+          creatividad:this.refs.creatividad.value,
+          entrevistado:1
         })
         .then(newNote => {
           console.log(newNote);

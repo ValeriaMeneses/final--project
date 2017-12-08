@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
 
       table.string('nombres');
       table.string('apellidos');
-      table.enu('sexo', ['femenino', 'masculino'])
+      table.enu('sexo', ['Female', 'Male'])
       table.date('fechaNacimiento');
       table.text('direccion');
       table.string('telefono');
@@ -28,11 +28,18 @@ exports.up = function(knex, Promise) {
       table.text('publicaciones');
       table.text('otros');
       table.string('idiomas');
+      table.boolean('entrevistado');
+      table.text('note');
+      table.integer('trabajoEquipo');
+      table.integer('liderazgo');
+      table.integer('conocimientoTecnico');
+      table.integer('facilidadComunicacion');
+      table.integer('creatividad');
     })
 };
 
 exports.down = function(knex, Promise) {
   return knex
     .schema
-    .dropTableIfExists('job');
+    .dropTableIfExists('curriculums');
 };

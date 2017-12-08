@@ -37,7 +37,8 @@ export default class CVForm extends React.Component{
           diplomados:this.refs.diplomados.value || null,
           publicaciones:this.refs.publicaciones.value || null,
           otros:this.refs.otros.value || null,
-          idiomas:this.refs.idiomas.value || null
+          idiomas:this.refs.idiomas.value || null,
+          entrevistado:0
         })
         .then(newcv =>{
           console.log(newcv);
@@ -81,8 +82,8 @@ export default class CVForm extends React.Component{
                 <label>Sexo</label>
                 <select className="browser-default" ref="sexo">
                   <option value="" disabled selected >Choose your option</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="masculino">Masculino</option>
+                  <option value="Female">Femenino</option>
+                  <option value="Male">Masculino</option>
                 </select>
               </div>
               <div className="row ">

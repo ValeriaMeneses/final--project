@@ -1,7 +1,8 @@
 const Router = require('express').Router;
 const fs = require('fs-extra');
 const CV = require('../models/CV.js');
-const Notes = require('../models/Notes.js');
+const Category = require('../models/Category.js');
+
 
 
 const apiRouter = Router();
@@ -37,18 +38,43 @@ function createCV(req, res) {
 
 }
 
-function getNotes(req, res) {
-  Notes
+function updateCV(req, res) {
+  CV
+    .query()
+    .updateAndFetchById(req.params.id, req.body)
+    .then(cvUpdated => {
+      return res.json(cvUpdated).status(200);
+    })
+    .catch(error => {
+      return res.send(error).status(500);
+    });
+}
+
+
+function getCategory(req, res) {
+  Category
     .query()
     .then(data => res.json(data));
 }
 
-function createNote(req, res) {
-  Notes
+function getCategoryId(req, res) {
+  Category
+    .query()
+    .findById(req.params.id)
+    .then(categories => {
+      return res.json(categories).status(200)
+    })
+    .catch(error => {
+      return res.send(error).status(500)
+    });
+}
+
+function createCategory(req, res) {
+  Category
     .query()
     .insert(req.body)
-    .then(newNote =>{
-      return res.json(newNote).status(200);
+    .then(newCategory =>{
+      return res.json(newCategory).status(200);
     })
     .catch(error => {
       return res.send(error).status(500);
@@ -56,13 +82,31 @@ function createNote(req, res) {
 
 }
 
+function updateCategory(req, res) {
+  Category
+    .query()
+    .updateAndFetchById(req.params.id, req.body)
+    .then(cvUpdated => {
+      return res.json(cvUpdated).status(200);
+    })
+    .catch(error => {
+      return res.send(error).status(500);
+    });
+}
+
+
 apiRouter
   .get('/cvs', getCVs)
   .get('/cvs/:id', getCvId)
-  .post('/cvs', createCV);
+  .post('/cvs', createCV)
+  .put('/cvs/:id', updateCV);
 
 apiRouter
-  .get('/notes', getNotes)
-  .post('/notes', createNote);
+  .get('/category', getCategory)
+  .get('/category/:id', getCategoryId)
+  .post('/category', createCategory)
+  .put('/category/:id', updateCategory);
+
+
 
 module.exports = apiRouter;
