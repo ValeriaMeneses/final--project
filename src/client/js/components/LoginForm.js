@@ -38,7 +38,7 @@ export default class LoginForm extends React.Component{
                 <label htmlFor="icon_prefix">Contraseña</label>
               </div>
             </div><br/>
-            <a className="waves-effect waves-light btn" onClick={this._handleSubmit}>Entrar</a><br/><br/>
+            <Link to="/principalPage" className="waves-effect waves-light btn" >Entrar</Link><br/><br/>
             <Link to="/createUser" className="waves-effect waves-light btn"><i className="material-icons right">account_box</i>Registrarse</Link>
           </form>
       </div>

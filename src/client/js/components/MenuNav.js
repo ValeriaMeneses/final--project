@@ -10,14 +10,14 @@ export default class MenuNav extends React.Component{
     this.logOut = this.logOut.bind(this);
   }
   logOut(){
-    request
-      .get('/auth/logout')
-      .then(()=>{
-        console.log('logout!');
-        this.props.handleLogout();
-
-      })
-      .catch(err => console.log(err))
+    // request
+    //   .get('/auth/logout')
+    //   .then(()=>{
+    //     console.log('logout!');
+    //     this.props.handleLogout();
+    //
+    //   })
+    //   .catch(err => console.log(err))
   }
   render(){
     // if (this.props.isAuthenticated === false) {
@@ -33,7 +33,7 @@ export default class MenuNav extends React.Component{
               <li><Link to="/filtros" className="tooltipped" data-delay="50" data-tooltip="CV's"><i className="material-icons">folder_shared</i></Link></li>
               <li><Link to="/categories/categories" className="tooltipped" data-delay="50" data-tooltip="Categorias"><i className="material-icons">filter_list</i></Link></li>
               <li><Link to="/dinamic/cv" className="tooltipped" data-delay="50" data-tooltip="Entrevista"><i className="material-icons">assignment_ind</i></Link></li>
-              <li><button className="tooltipped" data-delay="50" data-tooltip="Cerrar sesion" onClick={this.logOut}><i className="material-icons">lock</i></button></li>
+              <li><Link to="/login"><button className="tooltipped" data-delay="50" data-tooltip="Cerrar sesion" onClick={this.logOut}><i className="material-icons">lock</i></button></Link></li>
             </ul>
           </div>
         </nav>

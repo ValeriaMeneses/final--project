@@ -21046,8 +21046,8 @@ var LoginForm = function (_React$Component) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'a',
-          { className: 'waves-effect waves-light btn', onClick: this._handleSubmit },
+          __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+          { to: '/principalPage', className: 'waves-effect waves-light btn' },
           'Entrar'
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
@@ -21359,14 +21359,14 @@ var MenuNav = function (_React$Component) {
   }
 
   MenuNav.prototype.logOut = function logOut() {
-    var _this2 = this;
-
-    __WEBPACK_IMPORTED_MODULE_2_superagent___default.a.get('/auth/logout').then(function () {
-      console.log('logout!');
-      _this2.props.handleLogout();
-    }).catch(function (err) {
-      return console.log(err);
-    });
+    // request
+    //   .get('/auth/logout')
+    //   .then(()=>{
+    //     console.log('logout!');
+    //     this.props.handleLogout();
+    //
+    //   })
+    //   .catch(err => console.log(err))
   };
 
   MenuNav.prototype.render = function render() {
@@ -21461,12 +21461,16 @@ var MenuNav = function (_React$Component) {
             'li',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'button',
-              { className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'Cerrar sesion', onClick: this.logOut },
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: '/login' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'i',
-                { className: 'material-icons' },
-                'lock'
+                'button',
+                { className: 'tooltipped', 'data-delay': '50', 'data-tooltip': 'Cerrar sesion', onClick: this.logOut },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'i',
+                  { className: 'material-icons' },
+                  'lock'
+                )
               )
             )
           )
@@ -22349,7 +22353,7 @@ var CVSolo = function (_React$Component) {
     e.preventDefault();
     console.log(e);
     if (this.refs.trabajoEquipo.value !== '' && this.refs.liderazgo.value !== '' && this.refs.conocimientoTecnico.value !== '' && this.refs.facilidadComunicacion.value !== '' && this.refs.creatividad.value !== '' && this.refs.note.value !== '') {
-      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.put('/api/cvs/1').send({
+      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.put('/api/cvs/159').send({
         note: this.refs.note.value,
         trabajoEquipo: this.refs.trabajoEquipo.value,
         liderazgo: this.refs.liderazgo.value,
