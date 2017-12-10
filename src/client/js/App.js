@@ -12,6 +12,7 @@ export default () => (
 	</Button>
 );
 
+import Presentacion from './components/Presentacion.js';
 import LoginForm from './components/LoginForm.js';
 import CreateUser from './components/CreateUser.js';
 import PrincipalPage from './components/PrincipalPage.js';
@@ -83,10 +84,9 @@ class App extends React.Component {
   render (){
     return (
 			<div>
-					<MenuNav
-						handleLogout={this.handleLogout}
-          	isAuthenticated={this.state.isAuthenticated} />
+					
 					<Switch>
+						<Route path='/principal' component={Presentacion} />
 						<Route exact path='/login' render={props => (
 							<LoginForm
 								{...props}
