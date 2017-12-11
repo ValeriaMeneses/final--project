@@ -38,12 +38,13 @@ export default class FiltroCVs extends React.Component{
         if (this.state.visibleType === 'false'  &&  element.entrevistado === 0) {return true}
     })
     .map(function (element) {
+      let idCV = "/dynamic/" + element.id
         if (element.entrevistado === 1) {
           return(
             <tr key={element.id}>
               <td>{element.nombres.toUpperCase() + ' ' + element.apellidos.toUpperCase()}</td>
               <td>{element.tituloAdquirido}</td>
-              <td><Link to="#"><i className="large material-icons">star</i></Link></td>
+              <td><Link to={idCV}><i className="large material-icons">star</i></Link></td>
             </tr>
           )
         }

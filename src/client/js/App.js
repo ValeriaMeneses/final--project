@@ -22,6 +22,7 @@ import Category from './components/Category.js';
 import FiltroCVs from './components/FiltroCVs.js';
 import CVSolo from './components/CVSolo.js';
 import NewCategory from './components/NewCategory.js';
+import DynamicCv from './components/DynamicCv.js';
 
 
 
@@ -84,7 +85,7 @@ class App extends React.Component {
   render (){
     return (
 			<div>
-					
+
 					<Switch>
 						<Route path='/principal' component={Presentacion} />
 						<Route exact path='/login' render={props => (
@@ -102,6 +103,8 @@ class App extends React.Component {
 						<Route path='/filtros' component={FiltroCVs}/>
 						<Route path='/dinamic/cv' component={CVSolo}/>
 						<Route path='/newcategory' component={NewCategory}/>
+						<Route path='/dynamic/:cv' component={DynamicCv}/>
+
 						<Route component={NoMatch404}/>
 					</Switch>
 

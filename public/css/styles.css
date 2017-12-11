@@ -184,3 +184,11 @@ h2{
   grid-gap: 1em;
   grid-template-columns: 1fr 1fr 4fr;
 }
+
+.informacionCvSolo{
+  font-size: 20px !important;
+}
+.informacionCvSolo span{
+  font-weight: bold;
+  text-transform: capitalize;
+}
