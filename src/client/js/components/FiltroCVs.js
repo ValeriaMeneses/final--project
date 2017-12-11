@@ -3,9 +3,6 @@ import request from 'superagent';
 import {Link, NavLink} from 'react-router-dom';
 
 
-import TablaFiltros from './Tabla.js';
-
-
 export default class FiltroCVs extends React.Component{
   componentWillMount () {
     request
@@ -39,6 +36,7 @@ export default class FiltroCVs extends React.Component{
     })
     .map(function (element) {
       let idCV = "/dynamic/" + element.id
+      let idInterview = "/interview/" + element.id
         if (element.entrevistado === 1) {
           return(
             <tr key={element.id}>
@@ -48,12 +46,12 @@ export default class FiltroCVs extends React.Component{
             </tr>
           )
         }
-        else {
+        if (element.entrevistado === 0) {
           return(
             <tr key={element.id}>
               <td>{element.nombres.toUpperCase() + ' ' + element.apellidos.toUpperCase()}</td>
               <td>{element.tituloAdquirido}</td>
-              <td><Link to="#"><i className="large material-icons">star_border</i></Link></td>
+              <td><Link to={idInterview}><i className="large material-icons">star_border</i></Link></td>
             </tr>
           )
         }

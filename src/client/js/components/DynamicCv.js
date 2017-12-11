@@ -25,7 +25,6 @@ export default class DynamicCv extends React.Component{
   render(){
     let cv = this.state.cvs
 
-
     return (
       <div>
         <div className="informacionCvSolo">

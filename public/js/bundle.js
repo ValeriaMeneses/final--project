@@ -435,7 +435,7 @@ process.umask = function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(41);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(25);
 /* unused harmony reexport Router */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(82);
 /* unused harmony reexport StaticRouter */
@@ -2281,6 +2281,48 @@ module.exports = ReactPropTypesSecret;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(54);
+} else {
+  module.exports = __webpack_require__(57);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 exports.__esModule = true;
@@ -2371,7 +2413,7 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2464,18 +2506,18 @@ var createTransitionManager = function createTransitionManager() {
 exports.default = createTransitionManager;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(26);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__["a" /* default */]);
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2614,7 +2656,7 @@ Router.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Router);
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2691,7 +2733,7 @@ var matchPath = function matchPath(pathname) {
 /* harmony default export */ __webpack_exports__["a"] = (matchPath);
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2776,7 +2818,7 @@ var createTransitionManager = function createTransitionManager() {
 /* harmony default export */ __webpack_exports__["a"] = (createTransitionManager);
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2984,7 +3026,7 @@ Button.defaultProps = {
 exports.default = Button;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3043,48 +3085,6 @@ Row.propTypes = {
 };
 
 exports.default = Row;
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(54);
-} else {
-  module.exports = __webpack_require__(57);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 31 */
@@ -3742,7 +3742,7 @@ Link.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(27);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) {
@@ -4012,7 +4012,7 @@ var _Breadcrumb = __webpack_require__(97);
 
 var _Breadcrumb2 = _interopRequireDefault(_Breadcrumb);
 
-var _Button = __webpack_require__(28);
+var _Button = __webpack_require__(29);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -4128,7 +4128,7 @@ var _ProgressBar = __webpack_require__(120);
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
-var _Row = __webpack_require__(29);
+var _Row = __webpack_require__(30);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -4458,7 +4458,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(30);
+var _reactDom = __webpack_require__(22);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -4643,7 +4643,7 @@ exports.default = PaginationButton;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_superagent__ = __webpack_require__(9);
@@ -4661,6 +4661,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_CVSolo_js__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_NewCategory_js__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_DynamicCv_js__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_DynamicEntrevistar_js__ = __webpack_require__(145);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4677,15 +4678,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Button"],
-				{ waves: 'light' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Icon"],
-						null,
-						'thumb_up'
-				)
-		);
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Button"],
+		{ waves: 'light' },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Icon"],
+			null,
+			'thumb_up'
+		)
+	);
 });
 
 
@@ -4700,128 +4701,96 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var DynamicRoute = function DynamicRoute(props) {
-		var styleObj = { padding: '3rem', fontSize: '6vw', color: '#0E6655' };
-		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'h2',
-				{ style: styleObj },
-				'Dynamic Route: ',
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'u',
-						null,
-						props.match.params.routeVal
-				)
-		);
-};
-
-var DemoComponent = function DemoComponent() {
-		var styleObj = { padding: '3rem', fontSize: '6vw', color: 'slateblue' };
-		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Button"],
-				{ waves: 'light' },
-				'button',
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						__WEBPACK_IMPORTED_MODULE_4_react_materialize__["Icon"],
-						{ left: true },
-						'cloud'
-				)
-		);
-};
-
-var NoMatch404 = function NoMatch404() {
-		var styleObj = { padding: '3rem', fontSize: '6vw', color: 'indianred' };
-		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'h2',
-				{ style: styleObj },
-				'No Match - 404'
-		);
-};
 
 var App = function (_React$Component) {
-		_inherits(App, _React$Component);
+	_inherits(App, _React$Component);
 
-		function App() {
-				_classCallCheck(this, App);
+	function App() {
+		_classCallCheck(this, App);
 
-				var _this = _possibleConstructorReturn(this, _React$Component.call(this));
+		var _this = _possibleConstructorReturn(this, _React$Component.call(this));
 
-				_this.state = {
-						isAuthenticated: false
-				};
+		_this.state = {
+			isAuthenticated: false
+		};
 
-				_this.handleAuthentication = _this.handleAuthentication.bind(_this);
-				_this.handleLogout = _this.handleLogout.bind(_this);
-				return _this;
+		_this.handleAuthentication = _this.handleAuthentication.bind(_this);
+		_this.handleLogout = _this.handleLogout.bind(_this);
+		return _this;
+	}
+
+	App.prototype.handleAuthentication = function handleAuthentication(credentials) {
+		var _this2 = this;
+
+		__WEBPACK_IMPORTED_MODULE_3_superagent___default.a.post('/auth/login').send(credentials).then(function (data) {
+			_this2.setState({
+				isAuthenticated: data.body.id ? true : false
+			});
+		}).catch(function (err) {
+			return console.log(err);
+		});
+	};
+
+	App.prototype.handleLogout = function handleLogout() {
+		this.setState({
+			isAuthenticated: false
+		});
+	};
+
+	App.prototype.componentWillMount = function componentWillMount() {
+		var _this3 = this;
+
+		__WEBPACK_IMPORTED_MODULE_3_superagent___default.a.get('/auth/current').then(function (user) {
+			console.log('active session: ', user);
+			_this3.setState({
+				isAuthenticated: user.body.id ? true : false
+			});
+		}).catch(function (err) {
+			return console.log(err);
+		});
+	};
+
+	App.prototype.render = function render() {
+		var _this4 = this;
+
+		if (this.props.isAuthenticated === true) {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Redirect, { to: '/principalPage' });
 		}
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_MenuNav_js__["a" /* default */], {
+				handleLogout: this.handleLogout,
+				isAuthenticated: this.state.isAuthenticated }),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["e" /* Switch */],
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/principal', component: __WEBPACK_IMPORTED_MODULE_5__components_Presentacion_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { exact: true, path: '/login', render: function render(props) {
+						return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_LoginForm_js__["a" /* default */], _extends({}, props, {
+							isAuthenticated: _this4.state.isAuthenticated,
+							handleAuthentication: _this4.handleAuthentication }));
+					} }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/createUser', component: __WEBPACK_IMPORTED_MODULE_7__components_CreateUser_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/principalPage', component: __WEBPACK_IMPORTED_MODULE_8__components_PrincipalPage_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/cv-form', component: __WEBPACK_IMPORTED_MODULE_10__components_CVForm_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/categories/:category', component: __WEBPACK_IMPORTED_MODULE_11__components_Category_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/filtros', component: __WEBPACK_IMPORTED_MODULE_12__components_FiltroCVs_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/dinamic/cv', component: __WEBPACK_IMPORTED_MODULE_13__components_CVSolo_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/newcategory', component: __WEBPACK_IMPORTED_MODULE_14__components_NewCategory_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/dynamic/:cv', component: __WEBPACK_IMPORTED_MODULE_15__components_DynamicCv_js__["a" /* default */] }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/interview/:entrevistar', component: __WEBPACK_IMPORTED_MODULE_16__components_DynamicEntrevistar_js__["a" /* default */] })
+			)
+		);
+	};
 
-		App.prototype.handleAuthentication = function handleAuthentication(credentials) {
-				var _this2 = this;
-
-				__WEBPACK_IMPORTED_MODULE_3_superagent___default.a.post('/auth/login').send(credentials).then(function (data) {
-						_this2.setState({
-								isAuthenticated: data.body.id ? true : false
-						});
-				}).catch(function (err) {
-						return console.log(err);
-				});
-		};
-
-		App.prototype.handleLogout = function handleLogout() {
-				this.setState({
-						isAuthenticated: false
-				});
-		};
-
-		App.prototype.componentWillMount = function componentWillMount() {
-				var _this3 = this;
-
-				__WEBPACK_IMPORTED_MODULE_3_superagent___default.a.get('/auth/current').then(function (user) {
-						console.log('active session: ', user);
-						_this3.setState({
-								isAuthenticated: user.body.id ? true : false
-						});
-				}).catch(function (err) {
-						return console.log(err);
-				});
-		};
-
-		App.prototype.render = function render() {
-				var _this4 = this;
-
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["e" /* Switch */],
-								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/principal', component: __WEBPACK_IMPORTED_MODULE_5__components_Presentacion_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { exact: true, path: '/login', render: function render(props) {
-												return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_LoginForm_js__["a" /* default */], _extends({}, props, {
-														isAuthenticated: _this4.state.isAuthenticated,
-														handleAuthentication: _this4.handleAuthentication }));
-										} }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/createUser', component: __WEBPACK_IMPORTED_MODULE_7__components_CreateUser_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/ex/:routeVal', component: DynamicRoute }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/demo', component: DemoComponent }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/principalPage', component: __WEBPACK_IMPORTED_MODULE_8__components_PrincipalPage_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/cv-form', component: __WEBPACK_IMPORTED_MODULE_10__components_CVForm_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/categories/:category', component: __WEBPACK_IMPORTED_MODULE_11__components_Category_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/filtros', component: __WEBPACK_IMPORTED_MODULE_12__components_FiltroCVs_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/dinamic/cv', component: __WEBPACK_IMPORTED_MODULE_13__components_CVSolo_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/newcategory', component: __WEBPACK_IMPORTED_MODULE_14__components_NewCategory_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { path: '/dynamic/:cv', component: __WEBPACK_IMPORTED_MODULE_15__components_DynamicCv_js__["a" /* default */] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], { component: NoMatch404 })
-						)
-				);
-		};
-
-		return App;
+	return App;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */],
-		null,
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, null)
+	__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */],
+	null,
+	__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, null)
 ), document.getElementById('app-container'));
 
 /***/ }),
@@ -11521,7 +11490,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(25);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) {
@@ -12207,11 +12176,11 @@ var _invariant = __webpack_require__(6);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(22);
+var _LocationUtils = __webpack_require__(23);
 
 var _PathUtils = __webpack_require__(14);
 
-var _createTransitionManager = __webpack_require__(23);
+var _createTransitionManager = __webpack_require__(24);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -12511,7 +12480,7 @@ exports.default = createBrowserHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(25);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) {
@@ -12604,11 +12573,11 @@ var _invariant = __webpack_require__(6);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(22);
+var _LocationUtils = __webpack_require__(23);
 
 var _PathUtils = __webpack_require__(14);
 
-var _createTransitionManager = __webpack_require__(23);
+var _createTransitionManager = __webpack_require__(24);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -12940,7 +12909,7 @@ exports.default = createHashHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(26);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) {
@@ -13040,9 +13009,9 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(14);
 
-var _LocationUtils = __webpack_require__(22);
+var _LocationUtils = __webpack_require__(23);
 
-var _createTransitionManager = __webpack_require__(23);
+var _createTransitionManager = __webpack_require__(24);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -14021,7 +13990,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(43);
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -14336,7 +14305,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(43);
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -14662,7 +14631,7 @@ var createHashHistory = function createHashHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(28);
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
@@ -14860,7 +14829,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_history_PathUtils__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(26);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) {
@@ -15076,7 +15045,7 @@ StaticRouter.childContextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(27);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) {
@@ -15175,7 +15144,7 @@ Switch.propTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(27);
 // Written in this round about way for babel-transform-imports
 
 
@@ -18029,7 +17998,7 @@ var _classnames = __webpack_require__(2);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Row = __webpack_require__(29);
+var _Row = __webpack_require__(30);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -18756,7 +18725,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Button = __webpack_require__(28);
+var _Button = __webpack_require__(29);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -20696,7 +20665,7 @@ var _classnames = __webpack_require__(2);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Row = __webpack_require__(29);
+var _Row = __webpack_require__(30);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -20891,7 +20860,7 @@ var _classnames = __webpack_require__(2);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Button = __webpack_require__(28);
+var _Button = __webpack_require__(29);
 
 var _Button2 = _interopRequireDefault(_Button);
 
@@ -20991,81 +20960,6 @@ var Presentacion = function (_React$Component) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'carrusel' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_1_react_materialize__["Modal"],
-        {
-          header: 'Iniciar sesion',
-          fixedFooter: true,
-          trigger: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_react_materialize__["Button"],
-            null,
-            'Iniciar sesion'
-          ) },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: '' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'form',
-            { className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'row ' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'input-field col s6' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'i',
-                  { className: 'material-icons prefix' },
-                  'email'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', ref: 'email', className: 'validate' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'label',
-                  { htmlFor: 'icon_prefix' },
-                  'e-mail'
-                )
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'row ' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'input-field col s6' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'i',
-                  { className: 'material-icons prefix' },
-                  'lock'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', ref: 'password', className: 'validate' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'label',
-                  { htmlFor: 'icon_prefix' },
-                  'Contrase\xF1a'
-                )
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'a',
-              { className: 'waves-effect waves-light btn', onClick: this._handleSubmit },
-              'Entrar'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-              { to: '/createUser', className: 'waves-effect waves-light btn' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'i',
-                { className: 'material-icons right' },
-                'account_box'
-              ),
-              'Registrarse'
-            )
-          )
-        )
-      ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_1_react_materialize__["Slider"],
         null,
@@ -21508,9 +21402,10 @@ var MenuNav = function (_React$Component) {
   };
 
   MenuNav.prototype.render = function render() {
-    // if (this.props.isAuthenticated === false) {
-    //   return <Redirect to='/login' />
-    // }
+    if (this.props.isAuthenticated === false) {
+
+      // return <Redirect to='/login' />
+    }
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'nav',
       { className: 'menu' },
@@ -21616,7 +21511,7 @@ var MenuNav = function (_React$Component) {
   return MenuNav;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (MenuNav);
+/* harmony default export */ __webpack_exports__["a"] = (MenuNav);
 
 /***/ }),
 /* 138 */
@@ -22408,14 +22303,11 @@ var Category = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tabla_js__ = __webpack_require__(141);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
 
 
 
@@ -22472,6 +22364,7 @@ var FiltroCVs = function (_React$Component) {
       }
     }).map(function (element) {
       var idCV = "/dynamic/" + element.id;
+      var idInterview = "/interview/" + element.id;
       if (element.entrevistado === 1) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'tr',
@@ -22500,7 +22393,8 @@ var FiltroCVs = function (_React$Component) {
             )
           )
         );
-      } else {
+      }
+      if (element.entrevistado === 0) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'tr',
           { key: element.id },
@@ -22519,7 +22413,7 @@ var FiltroCVs = function (_React$Component) {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-              { to: '#' },
+              { to: idInterview },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'i',
                 { className: 'large material-icons' },
@@ -22599,148 +22493,7 @@ var FiltroCVs = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (FiltroCVs);
 
 /***/ }),
-/* 141 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-var TablaFiltros = function (_React$Component) {
-  _inherits(TablaFiltros, _React$Component);
-
-  function TablaFiltros() {
-    _classCallCheck(this, TablaFiltros);
-
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  TablaFiltros.prototype.render = function render() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'tabla' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'table',
-        { className: 'highlight' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'thead',
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'tr',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'th',
-              null,
-              'Nombre'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'th',
-              null,
-              'Especialidad'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'th',
-              null,
-              'Entrevistado'
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'tbody',
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'tr',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Valeria Meneses'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Ingenieria'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                { to: '#' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'i',
-                  { className: 'large material-icons' },
-                  'star'
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'tr',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Oscar Aguilar'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Administrativo'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'i',
-                { className: 'large material-icons' },
-                'star_border'
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'tr',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Jonathan'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              'Lollipop'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'td',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'i',
-                { className: 'large material-icons' },
-                'star'
-              )
-            )
-          )
-        )
-      )
-    );
-  };
-
-  return TablaFiltros;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* unused harmony default export */ var _unused_webpack_default_export = (TablaFiltros);
-
-/***/ }),
+/* 141 */,
 /* 142 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22749,6 +22502,7 @@ var TablaFiltros = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(5);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -22758,1094 +22512,97 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var CVSolo = function (_React$Component) {
   _inherits(CVSolo, _React$Component);
+
+  CVSolo.prototype.componentWillMount = function componentWillMount() {
+    var _this2 = this;
+
+    __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.get('/api/cvs').then(function (data) {
+      _this2.setState({
+        cvs: data.body
+      });
+    });
+  };
 
   function CVSolo() {
     _classCallCheck(this, CVSolo);
 
     var _this = _possibleConstructorReturn(this, _React$Component.call(this));
 
-    _this._handleClick = _this._handleClick.bind(_this);
+    _this.state = {
+      cvs: []
+    };
     return _this;
   }
 
-  CVSolo.prototype._handleClick = function _handleClick(e) {
-    e.preventDefault();
-    console.log(e);
-    if (this.refs.trabajoEquipo.value !== '' && this.refs.liderazgo.value !== '' && this.refs.conocimientoTecnico.value !== '' && this.refs.facilidadComunicacion.value !== '' && this.refs.creatividad.value !== '' && this.refs.note.value !== '') {
-      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.put('/api/cvs/1').send({
-        note: this.refs.note.value,
-        trabajoEquipo: this.refs.trabajoEquipo.value,
-        liderazgo: this.refs.liderazgo.value,
-        conocimientoTecnico: this.refs.conocimientoTecnico.value,
-        facilidadComunicacion: this.refs.facilidadComunicacion.value,
-        creatividad: this.refs.creatividad.value,
-        entrevistado: 1
-      }).then(function (newNote) {
-        console.log(newNote);
-        alert('enviado');
-      });
-    } else {
-      alert('falta algun campo');
-    }
-  };
-
   CVSolo.prototype.render = function render() {
+    var cv = this.state.cvs;
+    var filtro = cv.filter(function (element) {
+      if (element.entrevistado === 0) return true;
+    }).map(function (element) {
+      var idInterview = "/interview/" + element.id;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'tr',
+        { key: element.id },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          null,
+          element.nombres.toUpperCase() + ' ' + element.apellidos.toUpperCase()
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          null,
+          element.tituloAdquirido
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+            { to: idInterview },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'i',
+              { className: 'large material-icons' },
+              'star_border'
+            )
+          )
+        )
+      );
+    });
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      { className: 'cvsolo' },
+      null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'contenedor-cv' },
+        null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'informacion' },
+          'table',
+          { className: 'highlight' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'ul',
-            { id: 'tabs-swipe-demo', className: 'tabs blue' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              { className: 'tab col s3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { className: 'active', href: '#test-swipe-1' },
-                'Informaci\xF3n B\xE1sica'
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              { className: 'tab col s3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { href: '#test-swipe-2' },
-                'Formaci\xF3n Acad\xE9mica'
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              { className: 'tab col s3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { href: '#test-swipe-3' },
-                'Experiencia Laboral'
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              { className: 'tab col s3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { href: '#test-swipe-4' },
-                'Informaci\xF3n Adicional'
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              { className: 'tab col s3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { href: '#test-swipe-5' },
-                'Idiomas'
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'test-swipe-1', className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'ul',
-              { className: 'collapsible', 'data-collapsible': 'expandable' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'perm_identity'
-                  ),
-                  'Nombre(s)'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Valeria Irais'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'perm_identity'
-                  ),
-                  'Apellido(s)'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Meneses Aguilar'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'wc'
-                  ),
-                  'Sexo'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Femenino'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de nacimiento'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    '18-Febrero-1993'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'person_pin_circle'
-                  ),
-                  'Direccion'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Av. Morelos no.12 San miguel Totolcingo, Acolman,...'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'phone'
-                  ),
-                  'Telefono'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    '5565656565'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'email'
-                  ),
-                  'E-mail'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'vale@mail.com'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'filter_list'
-                  ),
-                  'Categoria'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Ingenieria'
-                  )
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'test-swipe-2', className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'ul',
-              { className: 'collapsible', 'data-collapsible': 'expandable' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'location_city'
-                  ),
-                  'Nombre de la Instituci\xF3n'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Muktek academy'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'school'
-                  ),
-                  'Titulo adquirido'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Full stack en javascript'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de inicio'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Septiembre 2017'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de inicio'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Septiembre 2017'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de termino'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Diciembre 2017'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'school'
-                  ),
-                  'No. de cedula'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    '123'
-                  )
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'test-swipe-3', className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'ul',
-              { className: 'collapsible', 'data-collapsible': 'expandable' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'assignment_ind'
-                  ),
-                  'Puesto'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Developer jr'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'transfer_within_a_station'
-                  ),
-                  'Funciones'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Developer jr'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'domain'
-                  ),
-                  'Empresa'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Google'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de inicio'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'today'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'date_range'
-                  ),
-                  'Fecha de termino'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'today'
-                  )
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'test-swipe-4', className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'ul',
-              { className: 'collapsible', 'data-collapsible': 'expandable' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'insert_drive_file'
-                  ),
-                  'Cursos'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Lorem isum'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'school'
-                  ),
-                  'Seminarios'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Lorem isum'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'school'
-                  ),
-                  'Diplomados'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Lorem isum'
-                  )
-                )
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'note'
-                  ),
-                  'Otros'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Lorem isum'
-                  )
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'test-swipe-5', className: 'col s12' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'ul',
-              { className: 'collapsible', 'data-collapsible': 'expandable' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-header' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'i',
-                    { className: 'material-icons' },
-                    'record_voice_over'
-                  ),
-                  'Idiomas'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'collapsible-body' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    null,
-                    'Lorem isum'
-                  )
-                )
-              )
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'habilidades' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h5',
-            null,
-            'Habilidades'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
+            'thead',
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h6',
-              null,
-              'Trabajo en equipo'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
+              'tr',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'select',
-                { className: 'browser-default', ref: 'trabajoEquipo' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '', disabled: true, selected: true },
-                  'Selecionar'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '1' },
-                  '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '2' },
-                  '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '3' },
-                  '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '4' },
-                  '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '5' },
-                  '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '6' },
-                  '6'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '7' },
-                  '7'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '8' },
-                  '8'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '9' },
-                  '9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '10' },
-                  '10'
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h6',
-              null,
-              'Liderazgo'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'select',
-                { className: 'browser-default', ref: 'liderazgo' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '', disabled: true, selected: true },
-                  'Selecionar'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '1' },
-                  '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '2' },
-                  '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '3' },
-                  '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '4' },
-                  '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '5' },
-                  '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '6' },
-                  '6'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '7' },
-                  '7'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '8' },
-                  '8'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '9' },
-                  '9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '10' },
-                  '10'
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h6',
-              null,
-              'Conocimiento Tecnico'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'select',
-                { className: 'browser-default', ref: 'conocimientoTecnico' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '', disabled: true, selected: true },
-                  'Selecionar'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '1' },
-                  '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '2' },
-                  '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '3' },
-                  '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '4' },
-                  '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '5' },
-                  '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '6' },
-                  '6'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '7' },
-                  '7'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '8' },
-                  '8'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '9' },
-                  '9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '10' },
-                  '10'
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h6',
-              null,
-              'Facilidad de comunicacion'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'select',
-                { className: 'browser-default', ref: 'facilidadComunicacion' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '', disabled: true, selected: true },
-                  'Selecionar'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '1' },
-                  '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '2' },
-                  '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '3' },
-                  '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '4' },
-                  '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '5' },
-                  '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '6' },
-                  '6'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '7' },
-                  '7'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '8' },
-                  '8'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '9' },
-                  '9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '10' },
-                  '10'
-                )
-              )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h6',
-              null,
-              'Creatividad'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'select',
-                { className: 'browser-default', ref: 'creatividad' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '', disabled: true, selected: true },
-                  'Selecionar'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '1' },
-                  '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '2' },
-                  '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '3' },
-                  '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '4' },
-                  '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '5' },
-                  '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '6' },
-                  '6'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '7' },
-                  '7'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '8' },
-                  '8'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '9' },
-                  '9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'option',
-                  { value: '10' },
-                  '10'
-                )
-              )
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'notas' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h5',
-            null,
-            'Notas'
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'row' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'form',
-              { className: 'col s12' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'row' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  { className: 'input-field col s12' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'note' })
-                )
+                'th',
+                null,
+                'Nombre'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'button',
-                { className: 'btn waves-effect waves-light', type: 'submit', name: 'action', onClick: this._handleClick },
-                'Agregar',
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'i',
-                  { className: 'material-icons right' },
-                  'send'
-                )
-              )
+                'th',
+                null,
+                'Especialidad'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', null)
             )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'tbody',
+            null,
+            filtro
           )
         )
       )
@@ -24021,7 +22778,7 @@ var NewCategory = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(5);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24727,6 +23484,1141 @@ var DynamicCv = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (DynamicCv);
+
+/***/ }),
+/* 145 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(5);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var DynamicEntrevistar = function (_React$Component) {
+  _inherits(DynamicEntrevistar, _React$Component);
+
+  DynamicEntrevistar.prototype.componentWillMount = function componentWillMount() {
+    var _this2 = this;
+
+    __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.get('/api/cvs/' + this.props.match.params.entrevistar).then(function (data) {
+      _this2.setState({
+        cvs: data.body
+      });
+    });
+  };
+
+  function DynamicEntrevistar() {
+    _classCallCheck(this, DynamicEntrevistar);
+
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this));
+
+    _this._handleClick = _this._handleClick.bind(_this);
+
+    _this.state = {
+      cvs: []
+    };
+    return _this;
+  }
+
+  DynamicEntrevistar.prototype._handleClick = function _handleClick(e) {
+    e.preventDefault();
+    console.log(e);
+    if (this.refs.trabajoEquipo.value !== '' && this.refs.liderazgo.value !== '' && this.refs.conocimientoTecnico.value !== '' && this.refs.facilidadComunicacion.value !== '' && this.refs.creatividad.value !== '' && this.refs.note.value !== '') {
+      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.put('/api/cvs/' + this.props.match.params.entrevistar).send({
+        note: this.refs.note.value,
+        trabajoEquipo: this.refs.trabajoEquipo.value,
+        liderazgo: this.refs.liderazgo.value,
+        conocimientoTecnico: this.refs.conocimientoTecnico.value,
+        facilidadComunicacion: this.refs.facilidadComunicacion.value,
+        creatividad: this.refs.creatividad.value,
+        entrevistado: 1
+      }).then(function (newNote) {
+        console.log(newNote);
+        alert('enviado');
+      });
+    } else {
+      alert('falta algun campo');
+    }
+  };
+
+  DynamicEntrevistar.prototype.render = function render() {
+    var cv = this.state.cvs;
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'cvsolo' },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h4',
+          null,
+          'Entrevistando a: ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            cv.nombres
+          ),
+          ' ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            cv.apellidos
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'notas' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'h3',
+          null,
+          'Notas'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'row' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'form',
+            { className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { className: 'row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'input-field col s12' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { id: 'textarea1', className: 'materialize-textarea', ref: 'note' })
+              )
+            )
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'contenedor-cv' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'informacion' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'ul',
+            { id: 'tabs-swipe-demo', className: 'tabs blue' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'li',
+              { className: 'tab col s3' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { className: 'active', href: '#test-swipe-1' },
+                'Informaci\xF3n B\xE1sica'
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'li',
+              { className: 'tab col s3' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: '#test-swipe-2' },
+                'Formaci\xF3n Acad\xE9mica'
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'li',
+              { className: 'tab col s3' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: '#test-swipe-3' },
+                'Experiencia Laboral'
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'li',
+              { className: 'tab col s3' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: '#test-swipe-4' },
+                'Informaci\xF3n Adicional'
+              )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'li',
+              { className: 'tab col s3' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: '#test-swipe-5' },
+                'Idiomas'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-1', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'perm_identity'
+                  ),
+                  'Nombre(s)'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.nombres
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'perm_identity'
+                  ),
+                  'Apellido(s)'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.apellidos
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'wc'
+                  ),
+                  'Sexo'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.sexo
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de nacimiento'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.fechaNacimiento
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'person_pin_circle'
+                  ),
+                  'Direccion'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.direccion
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'phone'
+                  ),
+                  'Telefono'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.telefono
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'email'
+                  ),
+                  'E-mail'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.email
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'filter_list'
+                  ),
+                  'Categoria'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    'Ingenieria'
+                  )
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-2', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'location_city'
+                  ),
+                  'Nombre de la Instituci\xF3n'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.nombreInstituto
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'Titulo adquirido'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.tituloAdquirido
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de inicio'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.fechaInicioEdu
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de inicio'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.fechaTerminoEdu
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'No. de cedula'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.cedula
+                  )
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-3', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'assignment_ind'
+                  ),
+                  'Puesto'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.puesto
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'transfer_within_a_station'
+                  ),
+                  'Funciones'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.funciones
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'domain'
+                  ),
+                  'Empresa'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.empresa
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de inicio'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.fechaInicioExp
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'date_range'
+                  ),
+                  'Fecha de termino'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.fechaTerminoExp
+                  )
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-4', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'insert_drive_file'
+                  ),
+                  'Cursos'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.cursos
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'Seminarios'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.seminarios
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'school'
+                  ),
+                  'Diplomados'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.diplomados
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'note'
+                  ),
+                  'Otros'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.otros
+                  )
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { id: 'test-swipe-5', className: 'col s12' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'ul',
+              { className: 'collapsible', 'data-collapsible': 'expandable' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-header' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'material-icons' },
+                    'record_voice_over'
+                  ),
+                  'Idiomas'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { className: 'collapsible-body' },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    null,
+                    cv.idiomas
+                  )
+                )
+              )
+            )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'habilidades' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h5',
+            null,
+            'Habilidades'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              'Trabajo en equipo'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'select',
+                { className: 'browser-default', ref: 'trabajoEquipo' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '1' },
+                  '1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              'Liderazgo'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'select',
+                { className: 'browser-default', ref: 'liderazgo' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '1' },
+                  '1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              'Conocimiento Tecnico'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'select',
+                { className: 'browser-default', ref: 'conocimientoTecnico' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '1' },
+                  '1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              'Facilidad de comunicacion'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'select',
+                { className: 'browser-default', ref: 'facilidadComunicacion' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '1' },
+                  '1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
+                )
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h6',
+              null,
+              'Creatividad'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'select',
+                { className: 'browser-default', ref: 'creatividad' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '', disabled: true, selected: true },
+                  'Selecionar'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '1' },
+                  '1'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '5' },
+                  '5'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '6' },
+                  '6'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '7' },
+                  '7'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '8' },
+                  '8'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '9' },
+                  '9'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'option',
+                  { value: '10' },
+                  '10'
+                )
+              )
+            )
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { className: 'btn waves-effect waves-light', type: 'submit', name: 'action', onClick: this._handleClick },
+        'Agregar',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'i',
+          { className: 'material-icons right' },
+          'send'
+        )
+      )
+    );
+  };
+
+  return DynamicEntrevistar;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (DynamicEntrevistar);
 
 /***/ })
 /******/ ]);

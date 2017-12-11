@@ -23,23 +23,7 @@ import FiltroCVs from './components/FiltroCVs.js';
 import CVSolo from './components/CVSolo.js';
 import NewCategory from './components/NewCategory.js';
 import DynamicCv from './components/DynamicCv.js';
-
-
-
-const DynamicRoute = (props) => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
-  return <h2 style={styleObj}>Dynamic Route: <u>{props.match.params.routeVal}</u></h2>
-}
-
-const DemoComponent = () => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: 'slateblue'}
-  return 		<Button waves='light'>button<Icon left>cloud</Icon></Button>
-}
-
-const NoMatch404 = () => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: 'indianred'}
-  return <h2 style={styleObj}>No Match - 404</h2>
-}
+import DynamicEntrevistar from './components/DynamicEntrevistar.js';
 
 class App extends React.Component {
 	constructor(){
@@ -83,9 +67,14 @@ class App extends React.Component {
        .catch(err => console.log(err));
    }
   render (){
+		if (this.props.isAuthenticated === true) {
+       return <Redirect to='/principalPage' />
+     }
     return (
 			<div>
-
+					<MenuNav
+						handleLogout={this.handleLogout}
+           	isAuthenticated={this.state.isAuthenticated}/>
 					<Switch>
 						<Route path='/principal' component={Presentacion} />
 						<Route exact path='/login' render={props => (
@@ -95,8 +84,6 @@ class App extends React.Component {
 								handleAuthentication={this.handleAuthentication} />
 						)}/>
 						<Route path='/createUser' component={CreateUser}/>
-						<Route path='/ex/:routeVal' component={DynamicRoute}/>
-						<Route path='/demo' component={DemoComponent}/>
 						<Route path='/principalPage' component={PrincipalPage}/>
 						<Route path='/cv-form' component={CVForm}/>
 						<Route path='/categories/:category' component={Category}/>
@@ -104,8 +91,7 @@ class App extends React.Component {
 						<Route path='/dinamic/cv' component={CVSolo}/>
 						<Route path='/newcategory' component={NewCategory}/>
 						<Route path='/dynamic/:cv' component={DynamicCv}/>
-
-						<Route component={NoMatch404}/>
+						<Route path='/interview/:entrevistar' component={DynamicEntrevistar}/>
 					</Switch>
 
     </div>

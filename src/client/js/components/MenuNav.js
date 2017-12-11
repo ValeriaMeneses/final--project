@@ -15,14 +15,14 @@ export default class MenuNav extends React.Component{
       .then(()=>{
         console.log('logout!');
         this.props.handleLogout();
-
       })
       .catch(err => console.log(err))
   }
   render(){
-    // if (this.props.isAuthenticated === false) {
-    //   return <Redirect to='/login' />
-    // }
+    if (this.props.isAuthenticated === false) {
+      
+      // return <Redirect to='/login' />
+    }
     return(
         <nav className="menu">
           <div className="nav-wrapper">
