@@ -51,10 +51,10 @@ export default class DynamicEntrevistar extends React.Component{
       return(
         <div className= "cvsolo">
           <div>
-            <h4>Entrevistando a: <span>{cv.nombres}</span> <span>{cv.apellidos}</span></h4>
+            <h1 className="center">Entrevistando a: <span>{cv.nombres}</span> <span>{cv.apellidos}</span></h1>
           </div>
           <div className="notas">
-            <h3>Notas</h3>
+            <h4 className="center">Escribe aqui tus anotaciones:</h4>
             <div className="row">
               <form className="col s12">
                 <div className="row">
@@ -76,34 +76,27 @@ export default class DynamicEntrevistar extends React.Component{
               </ul>
               <div id="test-swipe-1" className="col s12">
                   <ul className="collapsible" data-collapsible="expandable">
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">perm_identity</i>Nombre(s)</div>
-                      <div className="collapsible-body"><span>{cv.nombres}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">perm_identity</i>Apellido(s)</div>
-                      <div className="collapsible-body"><span>{cv.apellidos}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">wc</i>Sexo</div>
-                      <div className="collapsible-body"><span>{cv.sexo}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de nacimiento</div>
-                      <div className="collapsible-body"><span>{cv.fechaNacimiento}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">person_pin_circle</i>Direccion</div>
-                      <div className="collapsible-body"><span>{cv.direccion}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">phone</i>Telefono</div>
-                      <div className="collapsible-body"><span>{cv.telefono}</span></div>
-                    </li>
-                    <li>
-                      <div className="collapsible-header"><i className="material-icons">email</i>E-mail</div>
-                      <div className="collapsible-body"><span>{cv.email}</span></div>
-                    </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">perm_identity</i>Nombre(s): <span>{cv.nombres}</span> </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">perm_identity</i>Apellido(s): <span>{cv.apellidos}</span></div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">wc</i>Sexo: <span>{cv.sexo}</span></div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de nacimiento: <span> {cv.fechaNacimiento}</span></div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">person_pin_circle</i>Direccion: <span>{cv.direccion}</span></div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">phone</i>Telefono: <span>{cv.telefono}</span></div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header"><i className="material-icons">email</i>E-mail: <span>{cv.email}</span></div>
+                  </li>
                     <li>
                       <div className="collapsible-header"><i className="material-icons">filter_list</i>Categoria</div>
                       <div className="collapsible-body"><span>Ingenieria</span></div>
@@ -112,78 +105,63 @@ export default class DynamicEntrevistar extends React.Component{
               </div>
               <div id="test-swipe-2" className="col s12">
                 <ul className="collapsible" data-collapsible="expandable">
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">location_city</i>Nombre de la Institución</div>
-                    <div className="collapsible-body"><span>{cv.nombreInstituto}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">school</i>Titulo adquirido</div>
-                    <div className="collapsible-body"><span>{cv.tituloAdquirido}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de inicio</div>
-                    <div className="collapsible-body"><span>{cv.fechaInicioEdu}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de inicio</div>
-                    <div className="collapsible-body"><span>{cv.fechaTerminoEdu}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">school</i>No. de cedula</div>
-                    <div className="collapsible-body"><span>{cv.cedula}</span></div>
-                  </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">location_city</i>Nombre de la Institución: <span>{cv.nombreInstituto}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">school</i>Titulo adquirido: <span>{cv.tituloAdquirido}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de inicio: <span>{cv.fechaInicioEdu}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de termino: <span>{cv.fechaTerminoEdu}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">school</i>No. de cedula: <span>{cv.cedula}</span></div>
+                </li>
                 </ul>
               </div>
               <div id="test-swipe-3" className="col s12">
                 <ul className="collapsible" data-collapsible="expandable">
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">assignment_ind</i>Puesto</div>
-                    <div className="collapsible-body"><span>{cv.puesto}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">transfer_within_a_station</i>Funciones</div>
-                    <div className="collapsible-body"><span>{cv.funciones}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">domain</i>Empresa</div>
-                    <div className="collapsible-body"><span>{cv.empresa}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de inicio</div>
-                    <div className="collapsible-body"><span>{cv.fechaInicioExp}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de termino</div>
-                    <div className="collapsible-body"><span>{cv.fechaTerminoExp}</span></div>
-                  </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">assignment_ind</i>Puesto: <span>{cv.puesto}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">transfer_within_a_station</i>Funciones: <span>{cv.funciones}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">domain</i>Empresa: <span>{cv.empresa}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de inicio: <span>{cv.fechaInicioExp}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">date_range</i>Fecha de termino: <span>{cv.fechaTerminoExp}</span></div>
+                </li>
                 </ul>
               </div>
               <div id="test-swipe-4" className="col s12">
                 <ul className="collapsible" data-collapsible="expandable">
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">insert_drive_file</i>Cursos</div>
-                    <div className="collapsible-body"><span>{cv.cursos}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">school</i>Seminarios</div>
-                    <div className="collapsible-body"><span>{cv.seminarios}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">school</i>Diplomados</div>
-                    <div className="collapsible-body"><span>{cv.diplomados}</span></div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">note</i>Otros</div>
-                    <div className="collapsible-body"><span>{cv.otros}</span></div>
-                  </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">insert_drive_file</i>Cursos: <span>{cv.cursos}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">school</i>Seminarios: <span>{cv.seminarios}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">school</i>Diplomados: <span>{cv.diplomados}</span></div>
+                </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">note</i>Otros: <span>{cv.otros}</span></div>
+                </li>
                 </ul>
               </div>
               <div id="test-swipe-5" className="col s12">
                 <ul className="collapsible" data-collapsible="expandable">
-                  <li>
-                    <div className="collapsible-header"><i className="material-icons">record_voice_over</i>Idiomas</div>
-                    <div className="collapsible-body"><span>{cv.idiomas}</span></div>
-                  </li>
+                <li>
+                  <div className="collapsible-header"><i className="material-icons">record_voice_over</i>Idiomas: <span>{cv.idiomas}</span></div>
+                </li>
                 </ul>
               </div>
             </div>

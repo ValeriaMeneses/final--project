@@ -59,9 +59,9 @@ export default class FiltroCVs extends React.Component{
     return(
       <div className="filtros">
         <div className="ftrs">
-          <button className="btn" onClick="Materialize.showStaggeredList('#staggered-test')" onClick={ ()=>{this.handleClick('all') } }>Todos los CVs</button>
-          <button className="btn" onClick="Materialize.showStaggeredList('#staggered-test')" onClick= { ()=>{this.handleClick('true') } }>CVs entrevistados</button>
-          <button className="btn" onClick="Materialize.showStaggeredList('#staggered-test')" onClick= { ()=>{this.handleClick('false') } }>CVs para entrevista</button>
+          <button className="btn blue darken-3" onClick="Materialize.showStaggeredList('#staggered-test')" onClick={ ()=>{this.handleClick('all') } }>Todos los CVs</button>
+          <button className="btn blue darken-3" onClick="Materialize.showStaggeredList('#staggered-test')" onClick= { ()=>{this.handleClick('true') } }>CVs entrevistados</button>
+          <button className="btn blue darken-3" onClick="Materialize.showStaggeredList('#staggered-test')" onClick= { ()=>{this.handleClick('false') } }>CVs para entrevista</button>
         </div>
         <div>
           <table className="highlight">

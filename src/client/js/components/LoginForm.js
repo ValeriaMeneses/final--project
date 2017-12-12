@@ -2,6 +2,8 @@ import React from 'react';
 import request from 'superagent';
 import { Redirect } from 'react-router-dom';
 import {Link, NavLink} from 'react-router-dom';
+import { Slider, Slide, Modal, Button } from 'react-materialize';
+
 
 export default class LoginForm extends React.Component{
   constructor(){
@@ -23,7 +25,35 @@ export default class LoginForm extends React.Component{
     }
     return (
       <div className="password" >
+          <div className="carrusel">
+
+            <Slider>
+              <Slide
+              src="/images/11.jpg"
+              title="CVEntrevistado">
+              <i className="material-icons">import_contacts</i>
+              </Slide>
+              <Slide
+              src="/images/19.jpg"
+              title="Optimizar"
+              placement="left">
+              </Slide>
+              <Slide
+              src="/images/10.jpg"
+              title="Mantener"
+              placement="right">
+
+              </Slide>
+              <Slide
+              src="/images/25.jpg"
+              title="Controlar"
+              placement="left">
+
+              </Slide>
+            </Slider>
+          </div>
           <form className="col s12">
+            <h1>Inicio de sesion</h1><br/><br/><br/>
             <div className="row ">
               <div className="input-field col s6">
                 <i className="material-icons prefix">email</i>

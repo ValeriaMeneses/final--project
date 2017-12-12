@@ -1,12 +1,5 @@
-h1{
-  font-size: 200px;
-  color: #8e44ad;
-  text-align: center;
-}
-h2{
-  color: #9b59b6;
-  font-size: 120px;
-  text-align: center;
+body{
+  font-size: larger;
 }
 .carrusel{
   height: 100vh;
@@ -19,15 +12,16 @@ h2{
 }
 .password{
   color: navy;
-  background-image: url("../images/1.jpg");
-  background-size: cover;
   text-align: center;
-  padding: 17% 30% !important;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.carrusel i{
+  font-size: 70px !important;
 }
 .password form{
-  background-color: rgba(52, 152, 219,0.5);
   padding: 40px;
-  border-radius: 10px;
+  padding-top: 100px;
 }
 .input-field{
   width:100% !important;
@@ -37,14 +31,18 @@ h2{
 }
 
 .createUser{
-  background-image: url("../images/3.jpg");
+  background-image: url("../images/5.jpg");
   background-size: cover;
   padding: 3% 15%;
+  height: 100vh;
+  color: #200000;
+  font-size: larger
 }
 .createUser form{
+  background: rgba(255, 255, 255, 0.9);
   padding: 4%;
   border: 5px solid;
-  background: rgba(236, 240, 241,0.4)
+  border-radius: 20px;
 }
 
 .principalPage{
@@ -83,7 +81,7 @@ h2{
 }
 
 .menu{
-  background: black;
+  background: #004060;
   height: 100px;
 }
 .menu div{
@@ -101,19 +99,18 @@ h2{
 }
 
 .cvForm{
-  /*background-image: url("../images/3.jpg");*/
-  background: crimson;
   background-size: cover;
   padding: 2%;
   width: 100%;
   height: 125vh;
+  color: navy;
 }
 .cv{
-  background: rgba(52, 73, 94,0.3);
+  background: rgba(255, 255, 255, 0.95);
   border: 4px solid;
 }
 .cv ul{
-  background: rgba(52, 73, 94,0.3);
+  background: navy;
 }
 .tabs .tab a{
   color: white !important;
@@ -168,13 +165,22 @@ h2{
   width: 100%;
   height: 100vh;
 }
+.filtros button{
+  height: 60px;
+  font-size: larger;
+}
 
 .cvsolo{
-  background-image: url("../images/5.jpg");
-  background-size: cover;
   margin: 0;
   padding: 2%;
   height: 120vh;
+}
+.cvsolo button{
+  margin-left: 43%;
+  height: 50px;
+}
+.collapsible-body{
+  font-weight: bold !important;
 }
 .informacion .tabs .tab a{
   padding: 0 7px !important;
@@ -191,4 +197,26 @@ h2{
 .informacionCvSolo span{
   font-weight: bold;
   text-transform: capitalize;
+}
+.contenedor-cv span{
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.Cventrevistado{
+  padding: 3% !important;
+}
+.contenidoCV{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 2em;
+}
+.notas{
+  text-align: justify;
+}
+.titulo span{
+  text-transform: capitalize;
+}
+.tabla{
+  padding: 3% !important;
+  font-size: larger;
 }

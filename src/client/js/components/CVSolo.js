@@ -35,7 +35,8 @@ export default class CVSolo extends React.Component{
       )
     })
     return(
-      <div>
+      <div className="tabla">
+        <h1 className="center">Curriculums para entrevistar</h1>
         <div>
           <table className="highlight">
             <thead>

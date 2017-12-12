@@ -26,8 +26,11 @@ export default class DynamicCv extends React.Component{
     let cv = this.state.cvs
 
     return (
-      <div>
+      <div className="Cventrevistado">
+        <h1 className="center titulo">Curriculum Vitae de: <span>{cv.nombres}</span> <span>{cv.apellidos}</span></h1>
+        <div className="contenidoCV">
         <div className="informacionCvSolo">
+          <h3 className="center">Informacion de CV</h3>
           <ul id="tabs-swipe-demo" className="tabs blue">
             <li className="tab col s3"><a className="active" href="#test-swipe-1">Información Básica</a></li>
             <li className="tab col s3"><a href="#test-swipe-2">Formación Académica</a></li>
@@ -127,6 +130,7 @@ export default class DynamicCv extends React.Component{
           </div>
         </div>
         <div className="habilidades">
+          <h3 className="center">Habilidades</h3>
           <table className="highlight">
             <thead>
               <tr>
@@ -159,8 +163,9 @@ export default class DynamicCv extends React.Component{
             </tbody>
           </table>
         </div>
+        </div>
         <div className="notas">
-          <h5>Anotaciones</h5>
+          <h3 className="center">Anotaciones</h3>
           <p>{cv.note}</p>
         </div>
       </div>

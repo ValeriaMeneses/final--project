@@ -54,6 +54,7 @@ export default class CVForm extends React.Component{
   render(){
     return(
       <div className="cvForm">
+        <h1 className="center">Registrar Curriculum Vitae</h1>
         <div className="cv">
           <ul id="tabs-swipe-demo" className="tabs">
             <li className="tab col s3"><a className="active" href="#test-swipe-1">Información Básica</a></li>

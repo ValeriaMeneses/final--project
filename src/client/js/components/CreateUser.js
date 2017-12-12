@@ -31,6 +31,7 @@ export default class CreateUser extends React.Component{
   render() {
     return(
       <div className="createUser" >
+        <h1 className="center">Registrar Usuario</h1><br/>
           <form className="col s12">
             <div className="row ">
               <div className="input-field col s6">

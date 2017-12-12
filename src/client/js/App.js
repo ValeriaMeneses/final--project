@@ -67,9 +67,7 @@ class App extends React.Component {
        .catch(err => console.log(err));
    }
   render (){
-		if (this.props.isAuthenticated === true) {
-       return <Redirect to='/principalPage' />
-     }
+		console.log('testing---',this.state.isAuthenticated);
     return (
 			<div>
 					<MenuNav

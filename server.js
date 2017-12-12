@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 // Cookie Parse + Cookie Session middleware
 app.use(cookieParser())
 app.use(cookieSession({
-  name: 'cookiemonster',
+  name: 'cookie',
   secret: 'superdupersupersecret',
   httpOnly: true,
   signed: false
